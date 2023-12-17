@@ -8,16 +8,30 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "eslintConfig": {
+    "rules": {
+        "jsx-a11y/accessible-emoji": "off"
+    }
+  },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@headlessui/react": "^1.7.17",
+    "@mui/material-next": "^6.0.0-alpha.110",
+    "encoding": "^0.1.13",
+    "firebase": "^10.6.0",
+    "js-cookie": "^3.0.5",
+    "next": "13.5.4",
     "react": "^18",
     "react-dom": "^18",
-    "next": "13.5.4"
+    "react-hook-form": "^7.48.2",
+    "react-redux": "^9.0.4"
   },
   "devDependencies": {
     "autoprefixer": "^10",
-    "postcss": "^8",
-    "tailwindcss": "^3",
     "eslint": "^8",
-    "eslint-config-next": "13.5.4"
+    "eslint-config-next": "13.5.4",
+    "postcss": "^8",
+    "tailwindcss": "^3"
   }
 }

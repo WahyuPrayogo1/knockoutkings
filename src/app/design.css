@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('./font/BebasNeue-Regular.woff2') format('woff2'),
+        url('./font/BebasNeue-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('./font/Roboto-Regular.woff2') format('woff2'),
+        url('./font/Roboto-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+
+.fade-out {
+    animation: fadeOut 1s ease-in-out;
+  }
+  
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+@keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+
+
+
+
+
+
+
