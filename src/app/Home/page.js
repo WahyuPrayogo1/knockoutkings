@@ -9,8 +9,8 @@ import Features from "../components/features";
 import Gallery from "../components/gallery";
 import Footer from "../components/footer-logged-in";
 import withProtectedPage from '../../../hoc/withProtectedPage';
-import Empower from './empower';
-import FAQ from '../About/faq';
+import Empower from '../components/empower';
+import FAQ from '../components/faq';
 
 
 const Home = () => {

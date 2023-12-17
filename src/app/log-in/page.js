@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 import withUnprotectedPage from "../../../hoc/withUnprotectedPage"
-import HeroLogIn from "./hero-login"
-import LoginModal from "./LoginModal"
+import HeroLogIn from "../components/hero-login"
+import LoginModal from "../components/LoginModalPage"
 
 const LogIn = (OpenModal) => {
     const [open, setOpen] = useState(true)

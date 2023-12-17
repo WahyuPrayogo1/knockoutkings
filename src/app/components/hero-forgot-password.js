@@ -1,5 +1,5 @@
 "use client"
-export default function Hero(){
+export default function HeroForgotPassword(){
     return (
         
         <section className="w-full">   

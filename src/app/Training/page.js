@@ -5,8 +5,8 @@ import '../design.css'
 import '../globals.css'
 import Footer from "../components/footer-logged-in";
 import NavbarLoggedIn from '../components/navbar-logged-in';
-import TrainingListandUserTrainingList from './training-list-and-user-training-list';
-import HeroTraining from './hero-training';
+import TrainingListandUserTrainingList from '../components/training-list';
+import HeroTraining from '../components/hero-training';
 import withProtectedPage from '../../../hoc/withProtectedPage';
 
 const TrainingPage = () => {

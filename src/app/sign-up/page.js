@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 import withUnprotectedPage from "../../../hoc/withUnprotectedPage"
-import HeroSignUp from "./hero-signup"
-import SignUpModal from "./SignUpModal"
+import HeroSignUp from "../components/hero-signup"
+import SignUpModal from "../components/SignUpModalPage"
 
 const SignUp = (OpenModal) => {
     const [open, setOpen] = useState(true)

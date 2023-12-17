@@ -3,8 +3,8 @@ import '../../globals.css'
 import '../../design.css'
 import Footer from "@/app/components/footer-logged-in"
 import NavbarLoggedIn from '@/app/components/navbar-logged-in'
-import HeroArticle from './hero'
-import ArticleBts from './article'
+import HeroArticle from '../../components/hero-bts'
+import ArticleBts from '../../components/article-bts'
 import withProtectedPage from '../../../../hoc/withProtectedPage'
 
 const BTSPage = () => {

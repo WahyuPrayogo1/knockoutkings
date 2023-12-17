@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 import withUnprotectedPage from "../../../hoc/withUnprotectedPage"
-import Hero from "./hero"
-import ForgotPasswordModal from "./forgot-password"
+import Hero from "../components/hero-forgot-password"
+import ForgotPasswordModal from "../components/forgot-password"
 
 const ForgotPassword = (OpenModal) => {
     const [open, setOpen] = useState(true)

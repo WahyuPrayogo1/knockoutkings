@@ -5,8 +5,8 @@ import '../../globals.css'
 import '../../design.css'
 import Footer from "@/app/components/footer-logged-in";
 import withProtectedPage from "../../../../hoc/withProtectedPage";
-import HeroGirlsTrainingMatch from "./hero";
-import GirlsTrainingMatchList from "./training-and-user-list";
+import HeroGirlsTrainingMatch from "../../components/hero-girls";
+import GirlsTrainingMatchList from "../../components/training-and-user-list-girls";
 
 const GirlsTrainingMatch = () => {
     return (

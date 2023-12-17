@@ -3,7 +3,7 @@ import Link from "next/link"
 import { usePathname } from 'next/navigation';
 import { SignOut } from "../../../firebase";
 import { useState } from "react";
-import { useCart } from "../Shop/cart-context";
+import { useCart } from "./cart-context";
 import React from "react";
 
 const NavbarLoggedInShop = () => {
