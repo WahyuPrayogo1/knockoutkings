@@ -8,11 +8,6 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "eslintConfig": {
-    "rules": {
-        "jsx-a11y/accessible-emoji": "off"
-    }
-  },
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
