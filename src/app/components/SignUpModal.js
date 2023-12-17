@@ -16,7 +16,7 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 import Modal from '@mui/material/Modal'
 import TextField from '@mui/material/TextField'
 import FormError from '../../../Forms/Error'
-import { GetErrorSignUp, SignUp as SignUpToFirebase } from '../../../services/firebase'
+import { GetErrorSignUp, SignUp as SignUpToFirebase } from '../../../firebase'
 import Link from 'next/link'
 
 const style = {

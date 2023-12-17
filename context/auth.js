@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react";
-import { Authentication } from "../services/firebase";
+import { Authentication } from "../firebase";
 import CircularProgress from '@mui/material/CircularProgress'
 import { initialUserState, useUser } from "./user";
 

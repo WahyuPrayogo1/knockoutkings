@@ -14,7 +14,7 @@ import CircularProgress from '@mui/material/CircularProgress'
 import Modal from '@mui/material/Modal'
 import TextField from '@mui/material/TextField'
 import FormError from '../../../Forms/Error'
-import { SignIn, GetErrorSignIn } from '../../../services/firebase'
+import { SignIn, GetErrorSignIn } from '../../../firebase'
 
 const style = {
   position: 'absolute',

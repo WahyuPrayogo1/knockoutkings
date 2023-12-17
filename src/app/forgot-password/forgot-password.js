@@ -12,7 +12,7 @@ import CircularProgress from '@mui/material/CircularProgress'
 import Modal from '@mui/material/Modal'
 import TextField from '@mui/material/TextField'
 import FormError from '../../../Forms/Error'
-import { ForgotPassword } from '../../../services/firebase'
+import { ForgotPassword } from '../../../firebase'
 
 const style = {
   position: 'absolute',

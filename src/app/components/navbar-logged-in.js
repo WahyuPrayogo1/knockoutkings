@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link" 
 import { usePathname } from 'next/navigation';
-import { SignOut } from "../../../services/firebase";
+import { SignOut } from "../../../firebase";
 import { useState, useEffect } from "react";
 import ToggleSwitcher from "./toggle";
 

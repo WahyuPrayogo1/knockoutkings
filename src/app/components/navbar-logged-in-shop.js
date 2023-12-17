@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link" 
 import { usePathname } from 'next/navigation';
-import { SignOut } from "../../../services/firebase";
+import { SignOut } from "../../../firebase";
 import { useState } from "react";
 import { useCart } from "../Shop/cart-context";
 import React from "react";
