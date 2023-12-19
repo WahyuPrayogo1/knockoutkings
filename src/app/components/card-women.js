@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from "react";
-import '../../design.css'
+import '../design.css'
 
 const Card = ({ }) => {
 
