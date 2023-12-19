@@ -1,5 +1,4 @@
 "use client"
-
 import Navbar from "./components/navbar";
 import './globals.css'
 import './design.css'

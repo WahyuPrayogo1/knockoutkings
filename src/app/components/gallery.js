@@ -33,7 +33,7 @@ export default function Gallery() {
 
                     {Gallery.map((item, index) => (
 
-                        <div className="flex w-1/3 flex-wrap">
+                        <div key={index} className="flex w-1/3 flex-wrap">
                             <div className="w-full p-1 md:p-2">
                                 <img
                                 alt="gallery"

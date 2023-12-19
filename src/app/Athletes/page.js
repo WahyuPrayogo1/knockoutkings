@@ -1,5 +1,4 @@
 "use client"
-
 import Footer from "../components/footer-logged-in";
 import HeroAthletes from "../components/hero-athletes";
 import GalleryAthletes from "../components/knockout-kings-athletes";

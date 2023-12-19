@@ -119,32 +119,32 @@ const NavbarLoggedIn = () => {
                     >
                         <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                             <li className="text-white dark:text-black transition duration-500 text-center md:text-base text-sm">
-                                <Link href="/" className={currentRoute === '/Home' ? activeStyle : nonActiveStyle}>
+                                <Link rel="preload" href="/" className={currentRoute === '/Home' ? activeStyle : nonActiveStyle}>
                                     <p className="hover:text-red-600 transition duration-100">Home</p>  
                                 </Link>
                             </li>
                             <li className="text-white dark:text-black transition duration-500 text-center md:text-base text-sm">
-                                <Link href="/About" className={currentRoute === '/About' ? activeStyle : nonActiveStyle}>
+                                <Link rel="preload" href="/About" className={currentRoute === '/About' ? activeStyle : nonActiveStyle}>
                                     <p className="hover:text-red-600 transition duration-100">About</p>  
                                 </Link>
                             </li>
                             <li className="text-white dark:text-black transition duration-500 text-center md:text-base text-sm">
-                                <Link href="/News" className={currentRoute === '/News' ? activeStyle : nonActiveStyle}>
+                                <Link rel="preload" href="/News" className={currentRoute === '/News' ? activeStyle : nonActiveStyle}>
                                     <p className="hover:text-red-600 transition duration-100">News</p>  
                                 </Link>
                             </li>
                             <li className="text-white dark:text-black transition duration-500 text-center md:text-base text-sm">
-                                <Link href="/Training" className={currentRoute === '/Training' ? activeStyle : nonActiveStyle}>
+                                <Link rel="preload" href="/Training" className={currentRoute === '/Training' ? activeStyle : nonActiveStyle}>
                                     <p className="hover:text-red-600 transition duration-100">Training</p>  
                                 </Link>
                             </li>
                             <li className="text-white dark:text-black transition duration-500 text-center md:text-base text-sm">
-                                <Link href="/Athletes" className={currentRoute === '/Athletes' ? activeStyle : nonActiveStyle}>
+                                <Link rel="preload" href="/Athletes" className={currentRoute === '/Athletes' ? activeStyle : nonActiveStyle}>
                                     <p className="hover:text-red-600 transition duration-100">Athletes</p>  
                                 </Link>
                             </li>
                             <li className="text-white dark:text-black transition duration-500 text-center md:text-base text-sm">
-                                <Link href="/Shop" className={currentRoute === '/Shop' ? activeStyle : nonActiveStyle}>
+                                <Link rel="preload" href="/Shop" className={currentRoute === '/Shop' ? activeStyle : nonActiveStyle}>
                                     <p className="hover:text-red-600 transition duration-100">Shop</p>  
                                 </Link>
                             </li>

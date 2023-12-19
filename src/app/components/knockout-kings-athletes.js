@@ -98,7 +98,7 @@ export default function GalleryAthletes() {
                     
                     {boxingAthletes.map((boxing, index) => (
                     
-                        <div id="hero left" className="relative overflow-hidden bg-no-repeat shadow-black h-96 w-full shadow-lg group">
+                        <div id="hero left" key={index} className="relative overflow-hidden bg-no-repeat shadow-black h-96 w-full shadow-lg group">
                             <img src={boxing.image} alt="" className=" h-full w-full absolute object-cover object-top group-hover:scale-105 transition duration-500  "/>
                             <main className="flex justify-center py-2 opacity-0 group-hover:opacity-100 transition duration-500">
                                 <div style={{fontFamily: 'Bebas Neue'}} className="lg:text-4xl text-3xl z-40 pointer-events-none text-white">{boxing.name}</div>
@@ -113,7 +113,7 @@ export default function GalleryAthletes() {
 
                     {mmaAthletes.map((mma,index) => (
 
-                        <div id="hero left" className="relative overflow-hidden bg-no-repeat shadow-black h-96 w-full shadow-lg group">
+                        <div id="hero left" key={index} className="relative overflow-hidden bg-no-repeat shadow-black h-96 w-full shadow-lg group">
                             <img src={mma.image} alt="" className=" h-full w-full absolute object-cover group-hover:scale-105 transition duration-500  "/>
                             <main className="flex justify-center py-2 w-full opacity-0 group-hover:opacity-100 transition duration-500">
                                 <div style={{fontFamily: 'Bebas Neue', color: 'white'}} className="lg:text-4xl text-3xl z-40 pointer-events-none uppercase text-white"> {mma.name} </div>

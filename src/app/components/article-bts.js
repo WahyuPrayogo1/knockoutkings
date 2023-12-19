@@ -75,7 +75,7 @@ export default function ArticleBts() {
                             
                             <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5"
+                            className="h-5 w-5"
                             fill="currentColor"
                             viewBox="0 0 24 24">
                             <path
@@ -84,7 +84,7 @@ export default function ArticleBts() {
                             
                             <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="h-6 w-6"
+                            className="h-6 w-6"
                             fill="currentColor"
                             viewBox="0 0 24 24">
                             <path
@@ -93,7 +93,7 @@ export default function ArticleBts() {
                             
                             <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5"
+                            className="h-5 w-5"
                             fill="currentColor"
                             viewBox="0 0 24 24">
                             <path
@@ -102,7 +102,7 @@ export default function ArticleBts() {
                             
                             <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="h-6 w-6"
+                            className="h-6 w-6"
                             fill="currentColor"
                             viewBox="0 0 24 24">
                             <path
@@ -119,9 +119,9 @@ export default function ArticleBts() {
 
                         {otherArticles.map ((item, index) => (
 
-                            <Link href={item.link}>
+                            <Link key={index} href={item.link}>
                             
-                                <div className="flex md:flex-row flex-col-reverse justify-center items-center gap-5 py-4">
+                                <div  className="flex md:flex-row flex-col-reverse justify-center items-center gap-5 py-4">
 
                                     <div className="flex flex-col justify-center gap-3 text-white dark:text-black transition duration-500 max-w-xs">
 

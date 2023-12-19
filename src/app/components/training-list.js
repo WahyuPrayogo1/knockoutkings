@@ -46,7 +46,7 @@ const TrainingListandUserTrainingList = () => {
 
             {TrainingList.map((item,index) => (
 
-                <div className="relative overflow-hidden shadow-black shadow-lg w-full md:h-[350px] h-[250px] group">
+                <div key={index} className="relative overflow-hidden shadow-black shadow-lg w-full md:h-[350px] h-[250px] group">
 
                     <div className="absolute bg-black w-full h-full z-20 opacity-50"></div>
 

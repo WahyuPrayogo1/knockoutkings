@@ -60,7 +60,7 @@ export default function Team() {
 
                     {TeamBiodata.map((item, index) => (
 
-                        <div id="card-1" style={{fontFamily: 'Roboto'}} className="text-white text-center mx-auto bg-red-600 md:px-4 md:py-4 px-3 py-2 shadow-black shadow-lg rounded-md hover:text-black hover:bg-white hover:scale-105 transition duration-500">
+                        <div key={index} style={{fontFamily: 'Roboto'}} className="text-white text-center mx-auto bg-red-600 md:px-4 md:py-4 px-3 py-2 shadow-black shadow-lg rounded-md hover:text-black hover:bg-white hover:scale-105 transition duration-500">
                             <img src={item.image} alt="" className="rounded-full w-20 h-20 object-cover mx-auto mt-8 mb-4"/>
                             <h3 className="font-bold mb-1 md:text-base text-sm">{item.name}</h3>
                             <h3 className="md:text-sm text-xs">{item.position}</h3>

@@ -1,12 +1,10 @@
 "use client"
-
 import withProtectedPage from "../../../hoc/withProtectedPage"
 import Footer from "../components/footer-logged-in"
 import { NavbarLoggedInShop }  from "../components/navbar-logged-in-shop"
 import Benefits from "../components/benefits"
 import { CartProvider } from "../components/cart-context"
 import HeroShop from "../components/hero-shop"
-import NeedHelp from "../components/need-help"
 import OurBrands from "../components/our-brand"
 import OurCatalogues from "../components/our-catalogues"
 import OurSponsor from "../components/our-sponsor"
@@ -31,7 +29,6 @@ const ShopPage = () => {
             <OurBrands/>
             <OurCatalogues/>
             <RecentlySoldProduct/>
-            <NeedHelp/>
             <Footer/>
         </CartProvider>
     )

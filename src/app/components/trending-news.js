@@ -21,7 +21,7 @@ export default function TrendingNews() {
 
                         <div className="lg:text-4xl text-3xl lg:text-left text-center leading-tight font-black" style={{fontFamily: 'Bebas Neue'}}>Training Tips for Aspiring Boxers: From the Experts at Knockout Kings</div>
 
-                        <p className="lg:text-base text-sm lg:text-left text-justify leading-relaxed" style={{fontFamily: 'Roboto'}}>In this informative blog post, we'll delve into the world of boxing training with expert tips and advice from the trainers at Knockout Kings. Learn about the fundamentals of boxing, strength and conditioning...<text className="font-bold underline">More</text> </p>
+                        <div className="lg:text-base text-sm lg:text-left text-justify leading-relaxed" style={{fontFamily: 'Roboto'}}>In this informative blog post, we'll delve into the world of boxing training with expert tips and advice from the trainers at Knockout Kings. Learn about the fundamentals of boxing, strength and conditioning...<p className="font-bold underline">More</p> </div>
 
                         <div className="flex py-4 justify-between items-center">
 
@@ -40,9 +40,9 @@ export default function TrendingNews() {
 
                     <div>
 
-                        <div className="lg:text-4xl text-3xl lg:text-left text-center leading-tight font-black" style={{fontFamily: 'Bebas Neue'}}>Behind the Gloves: Stories of Success <text>from Knockout Kings' Rising Stars</text></div>
+                        <div className="lg:text-4xl text-3xl lg:text-left text-center leading-tight font-black" style={{fontFamily: 'Bebas Neue'}}>Behind the Gloves: Stories of Success <p>from Knockout Kings' Rising Stars</p></div>
 
-                        <p className="lg:text-base text-sm lg:text-left text-justify leading-relaxed" style={{fontFamily: 'Roboto'}}>Get inspired by the incredible journeys of some of Knockout Kings' most promising talents. This blog post will feature interviews...<text className="font-bold underline">More</text> </p>
+                        <div className="lg:text-base text-sm lg:text-left text-justify leading-relaxed" style={{fontFamily: 'Roboto'}}>Get inspired by the incredible journeys of some of Knockout Kings' most promising talents. This blog post will feature interviews...<p className="font-bold underline">More</p> </div>
 
                         <div className="flex py-10 justify-between items-center">
 
@@ -106,9 +106,9 @@ export default function TrendingNews() {
                         
                     </div>
 
-                        <div className="lg:text-4xl text-3xl lg:text-left text-center leading-tight font-black" style={{fontFamily: 'Bebas Neue'}}>International Boxing Stars Visit <text >Knockout Kings for Special Exhibition Matches</text></div>
+                        <div className="lg:text-4xl text-3xl lg:text-left text-center leading-tight font-black" style={{fontFamily: 'Bebas Neue'}}>International Boxing Stars Visit <p >Knockout Kings for Special Exhibition Matches</p></div>
 
-                        <p className="lg:text-base text-sm lg:text-left text-justify leading-relaxed" style={{fontFamily: 'Roboto'}}>Excitement is brewing as Knockout Kings hosts a series of special exhibition matches featuring international boxing stars. This news article will provide details about the visiting athletes, the matchups, and the anticipated showdowns. Fans can look forward to witnessing world-class boxing action right in their own backyard.</p>
+                        <div className="lg:text-base text-sm lg:text-left text-justify leading-relaxed" style={{fontFamily: 'Roboto'}}>Excitement is brewing as Knockout Kings hosts a series of special exhibition matches featuring international boxing stars. This news article will provide details about the visiting athletes, the matchups, and the anticipated showdowns. Fans can look forward to witnessing world-class boxing action right in their own backyard.</div>
 
                     <div className="flex py-10 justify-between items-center">
 
@@ -165,7 +165,7 @@ export default function TrendingNews() {
 
                     <div>
 
-                        <div className="lg:text-4xl text-3xl lg:text-left text-center leading-tight font-black" style={{fontFamily: 'Bebas Neue'}}>Knockout Kings Extends a Helping Hand: <text>Donating for Our Muslim Brothers and Sisters in Palestine</text></div>
+                        <div className="lg:text-4xl text-3xl lg:text-left text-center leading-tight font-black" style={{fontFamily: 'Bebas Neue'}}>Knockout Kings Extends a Helping Hand: <p>Donating for Our Muslim Brothers and Sisters in Palestine</p></div>
 
                         <div className="relative overflow-hidden w-full h-full">
 
@@ -215,7 +215,7 @@ export default function TrendingNews() {
 
                         </div>
 
-                        <p className="lg:text-base text-sm lg:text-left text-justify leading-relaxed " style={{fontFamily: 'Roboto'}}>In a remarkable display of compassion and solidarity, Knockout Kings Boxing Center has announced a generous donation to support our Muslim brothers and sisters in Palestine during...<text className="font-bold text-black dark:text-white transition duration-500 underline">More</text> </p>
+                        <div className="lg:text-base text-sm lg:text-left text-justify leading-relaxed " style={{fontFamily: 'Roboto'}}>In a remarkable display of compassion and solidarity, Knockout Kings Boxing Center has announced a generous donation to support our Muslim brothers and sisters in Palestine during...<p className="font-bold text-black dark:text-white transition duration-500 underline">More</p> </div>
 
                         <div className="flex py-4 justify-between items-center">
 

@@ -125,7 +125,7 @@ export default function ArticlePalestine() {
 
                         {otherArticles.map ((item, index) => (
 
-                            <Link href={item.link}>
+                            <Link key={index} href={item.link}>
                             
                                 <div className="flex md:flex-row flex-col-reverse justify-center items-center gap-5 py-4">
 

@@ -191,7 +191,7 @@ export default function Pricing({ OpenModal }) {
 
                             <main className="flex justify-center py-2 w-full opacity-0 ">
 
-                                <div style={{fontFamily: 'Bebas Neue', color: 'red'}} className="lg:text-4xl z-40 pointer-events-none">MIKE <text className="text-white">TYSON</text> </div>
+                                <div style={{fontFamily: 'Bebas Neue', color: 'red'}} className="lg:text-4xl z-40 pointer-events-none">MIKE <p className="text-white">TYSON</p> </div>
 
                             </main>
 

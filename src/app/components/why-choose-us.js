@@ -60,13 +60,13 @@ export default function WhyChooseUs() {
                         <div id="hero left" className="relative overflow-hidden bg-no-repeat shadow-black lg:h-72 lg:w-72 sm:h-56 sm:w-56 w-48 h-48 md:w-64 md:h-64 shadow-xl group">
                             <img src="boxer-training.jpg" alt="" className=" h-full w-full absolute object-cover group-hover:scale-105 transition duration-500  "/>
                             <main className="flex justify-center py-2 w-full opacity-0 ">
-                                <div style={{fontFamily: 'Bebas Neue', color: 'red'}} className="lg:text-4xl z-40 pointer-events-none">MIKE <text className="text-white">TYSON</text> </div>
+                                <div style={{fontFamily: 'Bebas Neue', color: 'red'}} className="lg:text-4xl z-40 pointer-events-none">MIKE <p className="text-white">TYSON</p> </div>
                             </main>
                         </div>
                         <div id="hero left" className="relative overflow-hidden bg-no-repeat shadow-black lg:h-72 lg:w-72 sm:h-56 sm:w-56 w-48 h-48 md:w-64 md:h-64 shadow-xl group">
                             <img src="mma.jpg" alt="" className=" h-full w-full absolute object-cover group-hover:scale-105 transition duration-500  "/>
                             <main className="flex justify-center py-2 w-full opacity-0 ">
-                                <div style={{fontFamily: 'Bebas Neue', color: 'red'}} className="lg:text-4xl z-40 pointer-events-none">MIKE <text className="text-white">TYSON</text> </div>
+                                <div style={{fontFamily: 'Bebas Neue', color: 'red'}} className="lg:text-4xl z-40 pointer-events-none">MIKE <p className="text-white">TYSON</p> </div>
                             </main>
                         </div>
                     </div>
@@ -74,13 +74,13 @@ export default function WhyChooseUs() {
                         <div id="hero left" className="lg:-ml-14 md:-ml-14 sm:-ml-20 -ml-0 relative overflow-hidden bg-no-repeat shadow-black lg:h-72 lg:w-72 sm:h-56 sm:w-56 w-48 h-48 md:w-64 md:h-64 shadow-xl group">
                             <img src="taekwondo.jpg" alt="" className=" h-full w-full absolute object-cover group-hover:scale-105 transition duration-500  "/>
                             <main className="flex justify-center py-2 w-full opacity-0 ">
-                                <div style={{fontFamily: 'Bebas Neue', color: 'red'}} className="lg:text-4xl z-40 pointer-events-none">MIKE <text className="text-white">TYSON</text> </div>
+                                <div style={{fontFamily: 'Bebas Neue', color: 'red'}} className="lg:text-4xl z-40 pointer-events-none">MIKE <p className="text-white">TYSON</p> </div>
                             </main>
                         </div>
                         <div id="hero left" className="lg:-ml-20 md:-ml-20 sm:-ml-20 -ml-0  relative overflow-hidden bg-no-repeat shadow-black lg:h-72 lg:w-72 sm:h-56 sm:w-56 w-48 h-48 md:w-64 md:h-64 shadow-xl group">
                             <img src="kickboxing.jpg" alt="" className=" h-full w-full absolute object-cover group-hover:scale-105 transition duration-500  "/>
                             <main className="flex justify-center py-2 w-full opacity-0 ">
-                                <div style={{fontFamily: 'Bebas Neue', color: 'red'}} className="lg:text-4xl z-40 pointer-events-none">MIKE <text className="text-white">TYSON</text> </div>
+                                <div style={{fontFamily: 'Bebas Neue', color: 'red'}} className="lg:text-4xl z-40 pointer-events-none">MIKE <p className="text-white">TYSON</p> </div>
                             </main>
                         </div>
                     </div>

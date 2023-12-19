@@ -11,7 +11,7 @@ export default function AboutUs() {
                         <div id="hero left" className="relative overflow-hidden bg-no-repeat shadow-black shadow-lg group">
                             <img src="boxing.jpg" className=" h-full w-full hover:scale-105 transition duration-500 object-cover"/>
                             <main className="flex justify-center py-2 w-full opacity-0 ">
-                                <div style={{fontFamily: 'Bebas Neue', color: 'red'}} className="lg:text-4xl z-40 pointer-events-none">MIKE <text className="text-white">TYSON</text> </div>
+                                <div style={{fontFamily: 'Bebas Neue', color: 'red'}} className="lg:text-4xl z-40 pointer-events-none">MIKE <p className="text-white">TYSON</p> </div>
                             </main>
                         </div>
                     </div>

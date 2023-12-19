@@ -1,3 +1,6 @@
+"use client"
+
+import { useEffect } from "react"
 import { useUser } from "../context/user"
 import { useRouter } from "next/navigation"
 
@@ -7,10 +10,11 @@ const withUnprotectedPage = (Component) => {
         const user = useUser()
         const { uid } = user 
 
+    useEffect(() => {
         if (uid) {
             router.replace('/Home')
-            return <></>
         }
+    }, [uid, router]);
 
         return <Component {...props}/>
     }

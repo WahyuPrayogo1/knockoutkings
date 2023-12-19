@@ -1,6 +1,4 @@
 "use client"
-// import withProtected from '../../../hoc/withProtected';
-// import { useUser } from '../../../context/user';
 import '../design.css'
 import '../globals.css'
 import Footer from "../components/footer-logged-in";

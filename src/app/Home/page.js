@@ -1,5 +1,4 @@
 "use client"
-
 import '../globals.css'
 import '../design.css'
 import NavbarLoggedIn from '../components/navbar-logged-in';

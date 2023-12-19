@@ -121,9 +121,9 @@ export default function ArticleTysonFury() {
 
                         {otherArticles.map ((item, index) => (
 
-                            <Link href={item.link}>
+                            <Link key={index} href={item.link}>
                             
-                                <div className="flex md:flex-row flex-col-reverse justify-center items-center gap-5 py-4">
+                                <div  className="flex md:flex-row flex-col-reverse justify-center items-center gap-5 py-4">
 
                                     <div className="flex flex-col justify-center gap-3 text-white dark:text-black transition duration-500 max-w-xs">
 

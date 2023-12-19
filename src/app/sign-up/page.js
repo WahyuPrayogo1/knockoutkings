@@ -1,5 +1,4 @@
 "use client"
-
 import { useState } from "react"
 import withUnprotectedPage from "../../../hoc/withUnprotectedPage"
 import HeroSignUp from "../components/hero-signup"

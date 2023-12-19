@@ -41,7 +41,7 @@ export default function News() {
 
                                     <div>
 
-                                        <div className="lg:text-5xl text-black dark:text-white text-3xl transition duration-500 font-black text-center lg:text-left leading-relaxed" style={{fontFamily: 'Bebas Neue'}}>MIKE TYSON IS THE NEW <text> WORLD CHAMPION</text></div>
+                                        <div className="lg:text-5xl text-black dark:text-white text-3xl transition duration-500 font-black text-center lg:text-left leading-relaxed" style={{fontFamily: 'Bebas Neue'}}>MIKE TYSON IS THE NEW <p> WORLD CHAMPION</p></div>
 
                                     </div>
 
@@ -87,7 +87,7 @@ export default function News() {
 
                                     <div>
 
-                                        <div className="lg:text-5xl text-black dark:text-white text-3xl transition duration-500 font-black text-center lg:text-left" style={{fontFamily: 'Bebas Neue'}}>Tyson Fury defeated <text> Deontay Wilder</text></div>
+                                        <div className="lg:text-5xl text-black dark:text-white text-3xl transition duration-500 font-black text-center lg:text-left" style={{fontFamily: 'Bebas Neue'}}>Tyson Fury defeated <p> Deontay Wilder</p></div>
 
                                     </div>
 
@@ -133,9 +133,9 @@ export default function News() {
 
                                     <div className="gap-5">
 
-                                        <div className="lg:text-5xl text-black dark:text-white text-3xl transition duration-500 font-black text-center lg:text-center uppercase" style={{fontFamily: 'Bebas Neue'}}>Local Boxer Achieves Stunning Victory with <text> Knockout Kings Boxing Center Training</text></div>
+                                        <div className="lg:text-5xl text-black dark:text-white text-3xl transition duration-500 font-black text-center lg:text-center uppercase" style={{fontFamily: 'Bebas Neue'}}>Local Boxer Achieves Stunning Victory with <p> Knockout Kings Boxing Center Training</p></div>
 
-                                        <p className="leading-relaxed text-black dark:text-white transition duration-500 text-justify lg:text-left lg:text-base text-sm" style={{fontFamily: 'Roboto'}}>In the world of professional boxing, reaching the pinnacle of the sport and becoming a world champion is an accomplishment that only a select few achieve. Daud "Cino" Yordan, the Indonesian boxing sensation, recently etched his name in the annals of boxing history as he succeeded in becoming a world champion. His journey is nothing short of remarkable, marked by dedication, perseverance, and an unrelenting passion for the sweet science Daud Yordan, hailing ...<text className="font-bold underline"> More</text></p>
+                                        <div className="leading-relaxed text-black dark:text-white transition duration-500 text-justify lg:text-left lg:text-base text-sm" style={{fontFamily: 'Roboto'}}>In the world of professional boxing, reaching the pinnacle of the sport and becoming a world champion is an accomplishment that only a select few achieve. Daud "Cino" Yordan, the Indonesian boxing sensation, recently etched his name in the annals of boxing history as he succeeded in becoming a world champion. His journey is nothing short of remarkable, marked by dedication, perseverance, and an unrelenting passion for the sweet science Daud Yordan, hailing ...<p className="font-bold underline"> More</p></div>
 
                                     </div>
 
@@ -194,9 +194,9 @@ export default function News() {
 
                                 <div className="text-black dark:text-white transition duration-500">
 
-                                    <div className="lg:text-5xl text-black dark:text-white text-3xl transition duration-500 font-black text-center lg:text-left uppercase" style={{fontFamily: 'Bebas Neue'}}>knockout kings is on top: <text>A Rising Force in the World of Fighting</text></div>
+                                    <div className="lg:text-5xl text-black dark:text-white text-3xl transition duration-500 font-black text-center lg:text-left uppercase" style={{fontFamily: 'Bebas Neue'}}>knockout kings is on top: <p>A Rising Force in the World of Fighting</p></div>
 
-                                    <p className="leading-relaxed text-black dark:text-white transition duration-500 text-justify lg:text-left lg:text-base text-sm">In the world of professional boxing, one name has been making waves and capturing the attention of fight fans and critics alike: Knockout Kings. This rising force in the boxing world has consistently demonstrated excellence ... <text className="font-bold underline">More</text></p>
+                                    <div className="leading-relaxed text-black dark:text-white transition duration-500 text-justify lg:text-left lg:text-base text-sm">In the world of professional boxing, one name has been making waves and capturing the attention of fight fans and critics alike: Knockout Kings. This rising force in the boxing world has consistently demonstrated excellence ... <p className="font-bold underline">More</p></div>
 
                                 </div>
                                 
@@ -266,9 +266,9 @@ export default function News() {
 
                                 <div>
 
-                                    <div className="lg:text-5xl text-black dark:text-white text-3xl transition duration-500 font-black text-center lg:text-left uppercase" style={{fontFamily: 'Bebas Neue'}}>Knockout King's<text> Champion Makes Boxing History!</text></div>
+                                    <div className="lg:text-5xl text-black dark:text-white text-3xl transition duration-500 font-black text-center lg:text-left uppercase" style={{fontFamily: 'Bebas Neue'}}>Knockout King's<p> Champion Makes Boxing History!</p></div>
 
-                                    <p className="leading-relaxed text-black dark:text-white transition duration-500 text-justify lg:text-left lg:text-base text-sm" style={{fontFamily: 'Roboto'}}>In an electrifying turn of events, the Knockout Kings Boxing Center has crowned its newest champion, sending shockwaves through the world of boxing. Rising star, Gervonta "Tank" Davis, etched his name ... <text className="font-bold underline">More</text></p>
+                                    <div className="leading-relaxed text-black dark:text-white transition duration-500 text-justify lg:text-left lg:text-base text-sm" style={{fontFamily: 'Roboto'}}>In an electrifying turn of events, the Knockout Kings Boxing Center has crowned its newest champion, sending shockwaves through the world of boxing. Rising star, Gervonta "Tank" Davis, etched his name ... <p className="font-bold underline">More</p></div>
 
                                 </div>
                                 

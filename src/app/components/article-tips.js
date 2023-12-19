@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link"
 
-export default function ArticleBTS() {
+export default function ArticleTips() {
 
     const OtherArticle = [
         {
@@ -17,6 +17,12 @@ export default function ArticleBTS() {
             image: "/tyson fury spar.jpg"
         },
         {
+            link: "/News/daud_yordan",
+            tittle: "How local boxer Daud 'Cino'  Yordan achieve stunning victory with knockout kings boxing center",
+            caption: "Popular news about Daud Yordan achieve stunning victory with knockout kings boxing center.",
+            image: "/daud yordan.jpg"
+        },
+        {
             link: "/News/kk-on-top",
             tittle: "Knockout King's is on top  a rising force in the world of fighting.",
             caption: "Hot news about Knockout King's is on top. a rising force in the world of fighting.",
@@ -27,12 +33,6 @@ export default function ArticleBTS() {
             tittle: "How Knockout King's athlete be the world champion that makes history.",
             caption: "Popular news about how Gervonta 'Tank' Davis succeded to be the world champion and makes history",
             image: "/tank davis.jpg"
-        },
-        {
-            link: "/News/tips",
-            tittle: "Training Tips for Aspiring Boxers From the Experts at Knockout Kings.",
-            caption: "Trending news about Training Tips for Aspiring  Boxers From the Experts at Knockout Kings.",
-            image: "/boxing training.jpg"
         },
         {
             link: "/News/bts",
@@ -63,13 +63,13 @@ export default function ArticleBTS() {
 
             <div>
 
-                <h3 className="lg:text-base text-sm flex lg:gap-3 gap-1.5 text-black dark:text-white leading-tight" style={{fontFamily: 'Roboto'}}>AUTHOR: <text className="font-black"> Ethan Donovan</text> </h3>
+                <h3 className="lg:text-base text-sm sm:flex lg:gap-3 gap-1.5 text-black dark:text-white leading-tight hidden" style={{fontFamily: 'Roboto'}}>AUTHOR: <p className="font-black"> Ethan Donovan</p> </h3>
 
             </div>
 
             <div>
 
-                <h3 className="lg:text-base text-sm flex lg:gap-3 gap-1.5 text-black dark:text-white leading-tight" style={{fontFamily: 'Roboto'}}>PUBLISHED ON: <text className="font-black"> November 10, 2023</text> </h3>
+                <h3 className="lg:text-base text-sm sm:flex lg:gap-3 gap-1.5 text-black dark:text-white leading-tight hidden" style={{fontFamily: 'Roboto'}}>PUBLISHED ON: <p className="font-black"> November 10, 2023</p> </h3>
 
             </div>
 
@@ -241,9 +241,9 @@ export default function ArticleBTS() {
 
             {OtherArticle.map((item, index) => (
 
-                <Link href={item.link}>
+                <Link key={index} href={item.link}>
 
-                    <div className="flex flex-col-reverse justify-between py-4">
+                    <div  className="flex flex-col-reverse justify-between py-4">
 
                         <div className="flex flex-col justify-between text-center py-4 gap-2 text-white dark:text-black transition duration-500">
 

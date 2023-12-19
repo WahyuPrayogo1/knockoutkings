@@ -10,7 +10,7 @@ export default function OurTraining() {
 
                     <div className="relative overflow-hidden w-full lg:h-[120px] h-[90px] group">
 
-                        <div className="absolute bg-black w-full h-full"></div>
+                        <div className="absolute bg-black w-full h-full z-10 opacity-50"></div>
 
                         <img src="/boxing training.jpg" className="absolute group-hover:scale-105 transition duration-500 object-cover object-center w-full h-full" alt="" />
 
@@ -23,7 +23,7 @@ export default function OurTraining() {
 
                     <div className="relative overflow-hidden w-full lg:h-[120px] h-[90px] group">
 
-                        <div className="absolute bg-black w-full h-full"></div>
+                        <div className="absolute bg-black w-full h-full z-10 opacity-50"></div>
 
                         <img src="/mma.jpg" className="absolute object-cover group-hover:scale-105 transition duration-500 object-center w-full h-full" alt="" />
                             
@@ -37,7 +37,7 @@ export default function OurTraining() {
 
                     <div className="relative overflow-hidden w-full lg:h-[120px] h-[90px] group">
 
-                        <div className="absolute bg-black w-full h-full"></div>
+                        <div className="absolute bg-black w-full h-full z-10 opacity-50"></div>
 
                         <img src="/taekwondo.jpg" className="absolute group-hover:scale-105 transition duration-500 object-cover object-center w-full h-full" alt="" />
                             
@@ -52,7 +52,7 @@ export default function OurTraining() {
 
                     <div className="relative overflow-hidden w-full lg:h-[120px] h-[90px] group">
 
-                        <div className="absolute bg-black w-full h-full"></div>
+                        <div className="absolute bg-black w-full h-full z-10 opacity-50"></div>
 
                         <img src="/kickboxing.jpg" className="absolute group-hover:scale-105 transition duration-500 object-cover object-center w-full h-full" alt="" />
                             
@@ -66,7 +66,7 @@ export default function OurTraining() {
 
                     <div className="relative overflow-hidden w-full lg:h-[120px] h-[90px] group">
 
-                        <div className="absolute bg-black w-full h-full"></div>
+                        <div className="absolute bg-black w-full h-full z-10 opacity-50"></div>
 
                         <img src="/bjj.jpg" className="absolute group-hover:scale-105 h-full w-full transition duration-500 object-cover object-center" alt="" />
                             
@@ -80,7 +80,7 @@ export default function OurTraining() {
 
                     <div className="relative overflow-hidden w-full lg:h-[120px] h-[90px] group">
 
-                        <div className="absolute bg-black w-full h-full"></div>
+                        <div className="absolute bg-black w-full h-full z-10 opacity-50"></div>
 
                         <img src="/krav maga.jpg" className="absolute group-hover:scale-105 h-full w-full transition duration-500 object-cover object-center" alt="" />
                             
