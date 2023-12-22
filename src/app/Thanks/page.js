@@ -1,3 +1,5 @@
+"use client"
+
 import '../globals.css';
 import '../design.css';
 import withProtectedPage from '../../../hoc/withProtectedPage';
