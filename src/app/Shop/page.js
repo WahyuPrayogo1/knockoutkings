@@ -1,6 +1,5 @@
 "use client"
 import withProtectedPage from "../../../hoc/withProtectedPage"
-import Footer from "../components/footer-logged-in"
 import { NavbarLoggedInShop }  from "../components/navbar-logged-in-shop"
 import Benefits from "../components/benefits"
 import { CartProvider } from "../components/cart-context"
@@ -12,10 +11,28 @@ import Promo from "../components/promo"
 import RecentlySoldProduct from "../components/recently-sold"
 import RecommendedProduct from "../components/recommended"
 import TopSeller from "../components/top-seller"
+import { useEffect } from "react"
+import FooterShop from "../components/footer-logged-in-shop"
 
 
 const ShopPage = () => {
 
+    useEffect(() => {
+
+        const snapScript = "https://app.sandbox.midtrans.com/snap/snap.js"
+        const clientKey = process.env.NEXT_PUBLIC_CLIENT
+        const script = document.createElement('script')
+        script.src = snapScript
+        script.setAttribute('data-client-key', clientKey)
+        script.async = true
+        
+        document.body.appendChild(script)
+
+        return () => {
+            document.body.removeChild(script)
+        }
+
+    }, [])
 
     return (
         <CartProvider>
@@ -29,7 +46,7 @@ const ShopPage = () => {
             <OurBrands/>
             <OurCatalogues/>
             <RecentlySoldProduct/>
-            <Footer/>
+            <FooterShop/>
         </CartProvider>
     )
 }

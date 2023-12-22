@@ -1,4 +1,4 @@
-"use client"
+// cart-context.js
 
 import { createContext, useReducer, useContext } from 'react';
 
@@ -12,27 +12,35 @@ const initialState = {
 const cartReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_TO_SHOP_CART':
-      // Check if the product is already in the shop cart
-      const isProductInShopCart = state.shopCart.some((product) => product.id === action.payload.id);
+      const existingProductIndex = state.shopCart.findIndex(product => product.id === action.payload.id);
 
-      if (!isProductInShopCart) {
-        // Ensure the quantity is set to 1 if it's not defined
-        const productToAdd = { ...action.payload, quantity: action.payload.quantity || 1 };
-        return { ...state, shopCart: [...state.shopCart, productToAdd] };
+      if (existingProductIndex !== -1) {
+        // If the product already exists in the cart, update the quantity
+        const updatedShopCart = [...state.shopCart];
+        const updatedProduct = { ...updatedShopCart[existingProductIndex] };
+
+        // Ensure the quantity is a positive integer
+        updatedProduct.quantity = Math.max(0, updatedProduct.quantity) + Math.max(0, action.payload.quantity || 1);
+
+        updatedShopCart[existingProductIndex] = updatedProduct;
+
+        return { ...state, shopCart: updatedShopCart };
       } else {
-        alert("This product is already added. You can't add the same product twice, but you can add or reduce the amount of product");
+        // If the product is not in the cart, add it
+        const productToAdd = { ...action.payload, quantity: Math.max(0, action.payload.quantity || 1) };
+        return { ...state, shopCart: [...state.shopCart, productToAdd] };
+      }
+
+
+    case 'ADD_TO_LOVE_CART':
+      const isProductInLoveCart = state.loveCart.some((product) => product.id === action.payload.id);
+
+      if (!isProductInLoveCart) {
+        return { ...state, loveCart: [...state.loveCart, action.payload] };
+      } else {
+        alert("This product is already added. You can't add the same product twice.");
         return state;
       }
-      case 'ADD_TO_LOVE_CART':
-        // Check if the product is already in the love cart
-        const isProductInLoveCart = state.loveCart.some((product) => product.id === action.payload.id);
-  
-        if (!isProductInLoveCart) {
-          return { ...state, loveCart: [...state.loveCart, action.payload] };
-        } else {
-          alert("This product is already added. You can't add the same product twice.");
-          return state;
-        }
     case 'REMOVE_FROM_LOVE_CART':
       return { ...state, loveCart: state.loveCart.filter((product) => product.id !== action.payload)};
     case 'REMOVE_FROM_SHOP_CART':
@@ -56,15 +64,13 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeFromLoveCart = (productId) => {
-    console.log('Removing product with ID:', productId);
     dispatch({ type: 'REMOVE_FROM_LOVE_CART', payload: productId });
   };
 
   const removeFromShopCart = (productId) => {
-    console.log('Removing product with ID:', productId);
     dispatch({ type: 'REMOVE_FROM_SHOP_CART', payload: productId });
   };
-  
+
   return (
     <CartContext.Provider value={{ state, dispatch, removeFromLoveCart, removeFromShopCart, updateShopCart }}>
       {children}
