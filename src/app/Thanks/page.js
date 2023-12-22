@@ -1,5 +1,5 @@
-import './globals.css';
-import './design.css';
+import '../globals.css';
+import '../design.css';
 import withProtectedPage from '../../../hoc/withProtectedPage';
 import Link from 'next/link';
 
