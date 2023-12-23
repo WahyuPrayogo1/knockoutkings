@@ -1,13 +1,45 @@
 "use client"
 
+import { useState, useEffect, useRef } from "react";
+
 export default function Pricing({ OpenModal }) {
+
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+          { rootMargin: "-10px" }
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      }, [isIntersecting]);
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi-hero').forEach((el) => {
+            el.classList.add('slide');
+          });
+        } else {
+            ref.current.querySelectorAll(".tersembunyi-hero").forEach((el) => {
+              el.classList.remove("slide");
+            });
+        }
+      }, [isIntersecting]);
+
     return (
 
-        <section className="lg:px-12 px-6 -mt-32 bg-[#f5f5f5]">
+        <section className="lg:px-12 px-6 -mt-32 bg-[#f5f5f5]" ref={ref}>
 
             <div className="flex-col flex lg:flex-row justify-between items-center pb-14 max-w-7xl mx-auto">
 
-                <div id="hero-left" className="flex justify-center flex-col md:mt-48 mt-32 lg:mt-40 max-w-xl">
+                <div id="hero-landing-left" className="flex justify-center flex-col md:mt-48 mt-32 lg:mt-40 max-w-xl tersembunyi-hero">
 
                     <div className="lg:text-3xl py-1 text-center text-2xl lg:text-left" style={{fontFamily: 'Bebas Neue', color: 'red'}}>Our Pricing Plans</div>
                     <div className="text-black lg:text-6xl py-1 lg:text-left text-4xl text-center" style={{fontFamily: 'Bebas Neue'}}>Affordable Pricing  plans for you</div>
@@ -181,7 +213,7 @@ export default function Pricing({ OpenModal }) {
                 </div>
 
 
-                <div id="hero-right" className="flex h-full lg:pt-32 pt-16 max-w-xl">
+                <div id="hero-landing-right" className="flex h-full lg:pt-32 pt-16 max-w-xl tersembunyi-hero">
 
                     <div className="flex flex-col gap-2 z-10">
 

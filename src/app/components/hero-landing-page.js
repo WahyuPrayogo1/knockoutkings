@@ -1,11 +1,42 @@
 "use client"
+import { useState, useEffect, useRef } from "react";
 
 export default function HeroLandingPage({ OpenModal }) {
+
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+          { rootMargin: "-10px" }
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      }, [isIntersecting]);
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi-hero').forEach((el) => {
+            el.classList.add('slide');
+          });
+        } else {
+            ref.current.querySelectorAll(".tersembunyi-hero").forEach((el) => {
+              el.classList.remove("slide");
+            });
+        }
+      }, [isIntersecting]);
+
     return (
-        <section className="w-full relative">   
+        <section className="w-full relative" ref={ref}>   
             <img src="/backround black.png" alt="" className="absolute -z-10 overflow-y-scroll w-full h-full object-cover bg-center bg-no-repeat"/>
             <main className="flex flex-col lg:flex-row pt-24 lg:pt-0 justify-between px-6 lg:px-12 items-center z-10 lg:max-w-7xl w-full mx-auto">
-                <div id="hero-left" className="lg:-mt-[150px] lg:max-w-lg">
+                <div id="hero-landing-left" className="lg:-mt-[150px] lg:max-w-lg tersembunyi-hero">
                     <div className="text-white text-5xl md:text-6xl text-center lg:text-8xl py-2 lg:text-left" style={{fontFamily: 'Bebas Neue'}}>train your martial arts</div>
                     <div className="text-white text-sm text-center lg:text-base lg:text-left py-2" style={{fontFamily: 'Roboto'}}>The goal of our martial arts program is to help you develop the skills. This is the place where you are taught how to be beast with your  body and guard yourself against everything</div>
                     <div className="flex lg:justify-start justify-center items-center text-sm lg:text-sm lg:gap-5 gap-2 py-5" style={{fontFamily: 'Roboto'}}>
@@ -13,7 +44,7 @@ export default function HeroLandingPage({ OpenModal }) {
                         <button onClick={OpenModal} className="text-black hover:text-white px-3 lg:px-6 py-2 bg-white hover:bg-red-600 transition duration-500 md:text-base text-xs uppercase">join knockout kings now</button>
                     </div>
                 </div>
-                <div id="hero-right" className="flex gap-4 pt-[100px] lg:max-w-2xl w-full">
+                <div id="hero-landing-right" className="flex gap-4 pt-[100px] lg:max-w-2xl w-full tersembunyi-hero">
                     <div className="flex flex-col gap-2 w-full pt-[200px]">
                         <div id="hero left" className="relative overflow-hidden bg-no-repeat shadow-black h-48 md:w-full lg:w-full w-full shadow-xl group">
                             <img src="Khabib-Nurmagomedov.jpg" alt="" className=" h-full w-full absolute object-cover group-hover:scale-105 transition duration-500  "/>

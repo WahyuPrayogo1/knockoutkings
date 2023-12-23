@@ -2,10 +2,34 @@
 import Link from "next/link" 
 import { usePathname } from 'next/navigation';
 import { SignOut } from "../../../firebase";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ToggleSwitcher from "./toggle";
 
 const NavbarLoggedIn = () => {
+
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      });
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi').forEach((el) => {
+            el.classList.add('slide-down');
+          });
+        }
+      });
 
     const [isDark, setIsDark] = useState(false);
 
@@ -44,8 +68,8 @@ const NavbarLoggedIn = () => {
 
     return (
 
-        <nav className="fixed w-full shadow z-50 bg-[#121212] dark:bg-[#f5f5f5] transition duration-500 bg-opacity-70 dark:bg-opacity-70" style={{backdropFilter: 'blur(10px)'}}>
-            <div className="justify-between px-4 mx-auto lg:max-w-8xl md:items-center md:flex md:px-8">
+        <nav className="fixed w-full shadow z-50 bg-[#121212] dark:bg-[#f5f5f5] transition duration-500 bg-opacity-70 dark:bg-opacity-70" ref={ref} style={{backdropFilter: 'blur(10px)'}}>
+            <div className="justify-between px-4 mx-auto lg:max-w-8xl md:items-center md:flex md:px-8 tersembunyi">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
                         <div className="flex lg:gap-2 gap-1 text-xl sm:text-2xl font-semibold md:text-3xl lg:text-5xl justify-start text-white dark:text-black transition duration-500 " style={{fontFamily: 'Bebas Neue'}}> KNOCKOUT <h2 style={{color: 'red'}}>KINGS</h2></div>

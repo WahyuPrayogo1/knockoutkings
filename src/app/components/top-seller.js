@@ -1,7 +1,37 @@
 "use client"
 import { useCart } from './cart-context';
+import { useEffect, useState, useRef } from 'react';
 
 export default function TopSeller() {
+
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+          { rootMargin: "-10px" }
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      }, [isIntersecting]);
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi-footer').forEach((el) => {
+            el.classList.add('slide-up');
+          });
+        } else {
+            ref.current.querySelectorAll(".tersembunyi-footer").forEach((el) => {
+              el.classList.remove("slide-up");
+            });
+        }
+      }, [isIntersecting]);
 
     const { dispatch } = useCart();
     
@@ -69,9 +99,9 @@ const DiscountedItem = [
 ]
 
     return (
-        <section className="bg-[#f5f5f5] py-6 lg:px-12 px-6">
+        <section className="bg-[#f5f5f5] py-6 lg:px-12 px-6" ref={ref}>
 
-            <h3 className="lg:text-6xl text-4xl text-center py-8 text-black" style={{fontFamily: 'Bebas Neue'}}>Top Seller</h3>
+            <h3 className="lg:text-6xl tersembunyi-footer text-4xl text-center py-8 text-black" style={{fontFamily: 'Bebas Neue'}}>Top Seller</h3>
 
             <div className="flex flex-col justify-center items-center gap-3 max-w-7xl mx-auto">
 
@@ -79,7 +109,7 @@ const DiscountedItem = [
 
                     {DiscountedItem.map((item, index) => (
 
-                    <div key={index} className="flex flex-col justify-between bg-white items-start px-4 py-4 rounded-md shadow-black shadow-md">
+                    <div key={index} className="flex flex-col tersembunyi-footer justify-between bg-white items-start px-4 py-4 rounded-md shadow-black shadow-md">
 
                         <img src={item.image} alt="" className="w-34 h-34 object-cover"/>
 

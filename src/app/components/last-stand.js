@@ -1,12 +1,43 @@
 "use client"
+import { useEffect, useState, useRef } from "react";
 
 export default function LastStand({ OpenModal }){
+
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+          { rootMargin: "-10px" }
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      }, [isIntersecting]);
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi-fade').forEach((el) => {
+            el.classList.add('fade');
+          });
+        } else {
+            ref.current.querySelectorAll(".tersembunyi-fade").forEach((el) => {
+              el.classList.remove("fade");
+            });
+        }
+      }, [isIntersecting]);
+
     return (
         
-        <section className="w-full bg-[#f5f5f5] relative py-10">   
-            <img src="/last stand.jpg" alt="" className="absolute h-[430px] w-full object-cover object-center bg-no-repeat"/>
-            <div className=" w-full bg-black h-[430px] absolute opacity-60"></div>
-            <main className="relative flex flex-col px-6 text-center gap-3 justify-center my-32 items-center w-full h-full">
+        <section className="w-full bg-[#f5f5f5] relative py-10" ref={ref}>   
+            <img src="/last stand.jpg" alt="" className="absolute h-[430px] w-full tersembunyi-fade object-cover object-center bg-no-repeat"/>
+            <div id="bg-black" className=" w-full bg-black h-[430px] absolute tersembunyi-fade opacity-60"></div>
+            <main className="relative flex tersembunyi-fade flex-col px-6 text-center gap-3 justify-center my-32 items-center w-full h-full">
                 <div id="hero-left">
                     <div className="text-white lg:text-5xl text-2xl" style={{fontFamily: 'Bebas Neue'}}>only the chosen one will be the last one standing</div>
                 </div>

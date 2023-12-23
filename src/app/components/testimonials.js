@@ -1,7 +1,37 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 function Testimonials() {
+
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+          { rootMargin: "-10px" }
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      }, [isIntersecting]);
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi-hero').forEach((el) => {
+            el.classList.add('slide');
+          });
+        } else {
+            ref.current.querySelectorAll(".tersembunyi-hero").forEach((el) => {
+              el.classList.remove("slide");
+            });
+        }
+      }, [isIntersecting]);
+
     const testimonialsData = [
         {
             text: "Knockout Kings is a leading boxing martial arts center dedicated to developing quality boxing athletes and improving your fitness. They offer comprehensive training guided by professional trainers.",
@@ -76,11 +106,11 @@ function Testimonials() {
     };
 
     return (
-        <section className="w-full -mt-2.5 dark:bg-[#121212] transition lg:px-12 px-6 duration-500 bg-[#f5f5f5]">
-            <div className="dark:text-white transition duration-500 text-black lg:text-6xl text-4xl flex justify-center pt-8 z-40" style={{ fontFamily: 'Bebas Neue' }}> What our champion says? </div>
+        <section className="w-full -mt-2.5 dark:bg-[#121212] transition lg:px-12 px-6 duration-500 bg-[#f5f5f5]" ref={ref}>
+            <div id='tittle' className="tersembunyi-hero dark:text-white transition duration-500 text-black lg:text-6xl text-4xl flex justify-center pt-8 z-40" style={{ fontFamily: 'Bebas Neue' }}> What our champion says? </div>
 
             <div className="flex flex-col lg:flex-row justify-center gap-24 lg:items-start items-center pt-16 z-10">
-                <div id="hero left" className="flex justify-center items-start gap-5 w-full max-w-md">
+                <div id="hero-landing-left" className="flex justify-center items-start gap-5 tersembunyi-hero w-full max-w-md">
                     <div className="flex flex-col justify-center items-end gap-20">
                         <img src={testimonialsData[currentTestimonial].image} alt="" className="h-32 w-32 object-cover shadow-black shadow-lg object-top"/>
                         <h3 className="rotate-90 text-black dark:text-white transition duration-500 md:text-base text-xs" style={{fontFamily: 'Roboto'}}>W o r d s</h3>
@@ -93,7 +123,7 @@ function Testimonials() {
                     </div>
                 </div>
 
-                <div id="hero-right" className="flex flex-col justify-between lg:items-start items-center overflow-hidden gap-6 max-w-2xl">
+                <div id="hero-landing-right" className="flex flex-col justify-between tersembunyi-hero lg:items-start items-center overflow-hidden gap-6 max-w-2xl">
                     <div className="lg:text-left md:text-base text-xs text-center transition duration-500 dark:text-white text-black font-medium" style={{ fontFamily: 'Roboto' }}>
                         "{testimonialsData[currentTestimonial].text}"
                     </div>

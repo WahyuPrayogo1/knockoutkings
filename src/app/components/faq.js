@@ -1,9 +1,41 @@
+"use client"
+import { useEffect, useState, useRef } from "react";
+
 export default function FAQ() {
+
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+          { rootMargin: "-10px" }
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      }, [isIntersecting]);
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi-footer').forEach((el) => {
+            el.classList.add('slide-up');
+          });
+        } else {
+            ref.current.querySelectorAll(".tersembunyi-footer").forEach((el) => {
+              el.classList.remove("slide-up");
+            });
+        }
+      }, [isIntersecting]);
+
     return (
-        <section className="py-12 dark:bg-[#121212] -mt-2.5 bg-[#f5f5f5] transition duration-500">
+        <section className="py-12 dark:bg-[#121212] -mt-2.5 bg-[#f5f5f5] transition duration-500" ref={ref}>
 
-
-            <div>
+            <div className="tersembunyi-footer">
                 <div className="space-y-16 container xl:max-w-7xl mx-auto px-4 lg:px-8 lg:py-2">
                     <div className="text-center">
                     <div className="md:text-xl text-lg uppercase tracking-wider dark:text-white text-black transition duration-500 mb-1" style={{fontFamily: 'Bebas Neue'}}>

@@ -1,4 +1,36 @@
+"use client"
+import { useEffect, useState, useRef } from "react";
+
 export default function Benefits() {
+
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+          { rootMargin: "-10px" }
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      }, [isIntersecting]);
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi-fade').forEach((el) => {
+            el.classList.add('fade');
+          });
+        } else {
+            ref.current.querySelectorAll(".tersembunyi-fade").forEach((el) => {
+              el.classList.remove("fade");
+            });
+        }
+      }, [isIntersecting]);
 
     const BenefitsData = [
         {
@@ -40,9 +72,9 @@ export default function Benefits() {
     ]
 
     return (
-        <section className="bg-[#f5f5f5] w-full py-14">
+        <section className="bg-[#f5f5f5] w-full py-14" ref={ref}>
 
-            <div className="flex flex-col items-center relative bg-cover" style={{backgroundImage: 'url(/spar.webp)'}}>
+            <div className="flex flex-col items-center tersembunyi-fade relative bg-cover" style={{backgroundImage: 'url(/spar.webp)'}}>
 
             <div className="absolute inset-0 bg-black opacity-75"></div>
 
@@ -50,7 +82,7 @@ export default function Benefits() {
 
                     {BenefitsData.map((item, index) => (
 
-                        <div key={index} className="flex flex-col justify-between items-center lg:gap-4 md:gap-3 gap-3 px-6 py-2" style={{fontFamily: 'Roboto'}}>
+                        <div key={index} className="flex flex-col tersembunyi-fade justify-between items-center lg:gap-4 md:gap-3 gap-3 px-6 py-2" style={{fontFamily: 'Roboto'}}>
 
                             <div dangerouslySetInnerHTML={{__html: item.svg}} className="md:w-14 md:h-14 w-10 h-10 mt-14 text-white"/>
 

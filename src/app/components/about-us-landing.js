@@ -1,12 +1,44 @@
 "use client"
 
+import { useState, useEffect, useRef } from "react";
+
 export default function AboutUs() {
+
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+          { rootMargin: "-10px" }
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      }, [isIntersecting]);
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi-hero').forEach((el) => {
+            el.classList.add('slide');
+          });
+        } else {
+            ref.current.querySelectorAll(".tersembunyi-hero").forEach((el) => {
+              el.classList.remove("slide");
+            });
+        }
+      }, [isIntersecting]);
+
     return (
-        <section className="px-12 -mt-32 bg-[#f5f5f5]">
+        <section className="px-12 -mt-32 bg-[#f5f5f5]" ref={ref}>
 
             <div className="flex flex-col-reverse lg:flex-row justify-between items-center py-14 max-w-7xl mx-auto">
 
-                <div id="hero-right" className="flex h-full max-w-lg lg:pt-[125px] py-10">
+                <div id="hero-landing-left" className="flex h-full max-w-lg tersembunyi-hero lg:pt-[125px] py-10">
                     <div className="flex flex-col gap-2 z-10">
                         <div id="hero left" className="relative overflow-hidden bg-no-repeat shadow-black shadow-lg group">
                             <img src="boxing.jpg" className=" h-full w-full hover:scale-105 transition duration-500 object-cover"/>
@@ -17,7 +49,7 @@ export default function AboutUs() {
                     </div>
                 </div>
 
-                <div id="hero-left" className="flex justify-center flex-col mt-40 max-w-2xl">
+                <div id="hero-landing-right" className="flex tersembunyi-hero justify-center flex-col mt-40 max-w-2xl">
 
                     <div className="lg:text-3xl text-2xl py-1 text-center lg:text-left" style={{fontFamily: 'Bebas Neue', color: 'red'}}>About us</div>
                     <div className="text-black lg:text-6xl text-4xl py-1 text-center lg:text-left" style={{fontFamily: 'Bebas Neue'}}>Best boxing school and martial  arts since 2004</div>

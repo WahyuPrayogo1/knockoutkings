@@ -1,17 +1,46 @@
 "use client"
 import Link from "next/link"
+import { useState, useEffect, useRef } from "react";
 
 export default function News() {
 
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+          { rootMargin: "-10px" }
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      }, [isIntersecting]);
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi-hero').forEach((el) => {
+            el.classList.add('slide');
+          });
+        } else {
+            ref.current.querySelectorAll(".tersembunyi-hero").forEach((el) => {
+              el.classList.remove("slide");
+            });
+        }
+      }, [isIntersecting]);
+
     return (
-        <section id="gallery" className="w-full -mt-2.5 bg-[#f5f5f5] px-6 transition duration-500 dark:bg-[#121212]">
+        <section id="gallery" className="w-full -mt-2.5 bg-[#f5f5f5] px-6 transition duration-500 dark:bg-[#121212] overflow-x-hidden" ref={ref}>
 
-
-        <div className="dark:text-white text-black text-center hidden lg:block transition duration-500 uppercase md:text-6xl text-4xl justify-center py-8" style={{fontFamily: 'Bebas Neue'}}>news</div>
+        <div id="tittle" className="dark:text-white tersembunyi-hero text-black text-center hidden lg:block transition duration-500 uppercase md:text-6xl text-4xl justify-center py-8" style={{fontFamily: 'Bebas Neue'}}>news</div>
 
         <div className="flex flex-col lg:flex-row justify-center items-center max-w-7xl mx-auto">
 
-            <div id="left" className="max-w-3xl">
+            <div id="hero-landing-left" className="max-w-3xl tersembunyi-hero">
 
                     <div className="flex-col px-6 py-4 lg:border-r border-b lg:border-b-transparent border-r-black dark:border-r-white border-b-black transition duration-500">
 
@@ -41,7 +70,7 @@ export default function News() {
 
                                     <div>
 
-                                        <div className="lg:text-5xl text-black dark:text-white text-3xl transition duration-500 font-black text-center lg:text-left leading-relaxed" style={{fontFamily: 'Bebas Neue'}}>MIKE TYSON IS THE NEW <p> WORLD CHAMPION</p></div>
+                                        <div className="lg:text-5xl text-black dark:text-white text-3xl transition duration-500 font-black text-center lg:text-left leading-relaxed" style={{fontFamily: 'Bebas Neue'}}>MIKE TYSON IS THE NEW WORLD CHAMPION</div>
 
                                     </div>
 
@@ -87,7 +116,7 @@ export default function News() {
 
                                     <div>
 
-                                        <div className="lg:text-5xl text-black dark:text-white text-3xl transition duration-500 font-black text-center lg:text-left" style={{fontFamily: 'Bebas Neue'}}>Tyson Fury defeated <p> Deontay Wilder</p></div>
+                                        <div className="lg:text-5xl text-black dark:text-white text-3xl transition duration-500 font-black text-center lg:text-left" style={{fontFamily: 'Bebas Neue'}}>Tyson Fury defeated Deontay Wilder</div>
 
                                     </div>
 
@@ -164,7 +193,7 @@ export default function News() {
 
             </div>
 
-            <div id="right" className="max-w-lg">
+            <div id="hero-landing-right" className="max-w-lg tersembunyi-hero">
 
                 <div className="flex-col px-6 py-4">
 

@@ -1,7 +1,37 @@
 "use client"
 import Link from "next/link"
+import { useState, useEffect, useRef } from "react";
 
 export default function ArticleInternationalBoxer() {
+
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+          { rootMargin: "-10px" }
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      }, [isIntersecting]);
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi-hero').forEach((el) => {
+            el.classList.add('slide');
+          });
+        } else {
+            ref.current.querySelectorAll(".tersembunyi-hero").forEach((el) => {
+              el.classList.remove("slide");
+            });
+        }
+      }, [isIntersecting]);
 
     const otherArticles = [
         {
@@ -55,13 +85,13 @@ export default function ArticleInternationalBoxer() {
     ]
 
     return (
-        <section id="gallery" className="w-full py-10 -mt-2.5 dark:bg-[#121212] bg-[#f5f5f5] transition duration-500">
+        <section id="gallery" className="w-full py-10 -mt-2.5 dark:bg-[#121212] bg-[#f5f5f5] transition duration-500" ref={ref}>
 
         <div className="flex flex-col lg:flex-row lg:items-start items-center justify-between gap-32 px-6 py-4 max-w-7xl mx-auto">
 
             <div className="flex justify-start w-full text-black dark:text-white transition duration-500">
 
-                <div className="flex flex-col justify-start gap-4 py-8 max-w-7xl mx-auto">
+                <div id="hero-landing-left" className=" tersembunyi-hero flex flex-col justify-start gap-4 py-8 max-w-7xl mx-auto">
 
                         <div className="flex flex-col justify-start items-center">
                             <h3 className="dark:text-white flex flex-col justify-start text-center transition duration-500 text-black lg:text-left uppercase lg:text-6xl text-4xl  py-8 max-w-4xl mx-auto" style={{fontFamily: 'Bebas Neue'}}>International Boxing Stars Visit Knockout Kings for Special Exhibition Matches</h3>
@@ -86,7 +116,7 @@ export default function ArticleInternationalBoxer() {
 
             </div>
 
-            <div className="flex lg:justify-end justify-center w-full text-black dark:text-white transition duration-500">
+            <div id="hero-landing-right" className="flex tersembunyi-hero lg:justify-end justify-center w-full text-black dark:text-white transition duration-500">
 
                 <div className="flex flex-col justify-start gap-10">
 
@@ -129,7 +159,7 @@ export default function ArticleInternationalBoxer() {
 
                                     <h3 className="font-bold lg:text-base text-sm leading-relaxed md:text-left text-center" style={{fontFamily: 'Roboto'}}>{item.tittle}</h3>
 
-                                        <p className="font-extralight lg:text-sm text-xs text-white dark:text-black dark:font-light overflow-hidden leading-relaxed md:text-left text-center">{item.caption}</p>
+                                        <p className="font-extralight lg:text-sm text-xs text-white transition duration-500 dark:text-black dark:font-light overflow-hidden leading-relaxed md:text-left text-center">{item.caption}</p>
 
                                     </div>
 
@@ -156,7 +186,7 @@ export default function ArticleInternationalBoxer() {
 
         <Link href="/News" className="" style={{fontFamily: 'Roboto'}}>
 
-            <div className="flex justify-start gap-2 items-center px-6 py-4 text-black dark:text-white transition duration-500 group">
+            <div className="flex justify-start gap-2 items-center px-6 py-4 text-black dark:text-white transition duration-500 group tersembuyi-hero" id="hero-left-landing">
             
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 group-hover:-translate-x-1 transition">
                 <   path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />

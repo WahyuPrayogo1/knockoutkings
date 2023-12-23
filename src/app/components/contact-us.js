@@ -1,13 +1,45 @@
+import { useState, useEffect, useRef } from "react";
+
 export default function ContactUs() {
+
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+          { rootMargin: "-10px" }
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      }, [isIntersecting]);
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi-hero').forEach((el) => {
+            el.classList.add('slide');
+          });
+        } else {
+            ref.current.querySelectorAll(".tersembunyi-hero").forEach((el) => {
+              el.classList.remove("slide");
+            });
+        }
+      }, [isIntersecting]);
+
     return (
 
-        <section className="px-6 bg-[#f5f5f5]">
+        <section className="px-6 bg-[#f5f5f5] overflow-x-hidden" ref={ref}>
 
-        <div className="text-black lg:text-6xl text-4xl text-center pt-8 pb-2" style={{fontFamily: 'Bebas Neue'}}><h3>CONTACT</h3></div>
+        <div id="tittle" className="text-black lg:text-6xl text-4xl text-center pt-8 pb-2 tersembunyi-hero" style={{fontFamily: 'Bebas Neue'}}><h3>CONTACT</h3></div>
 
             <div className="flex lg:flex-row flex-col justify-between items-center py-14 max-w-7xl mx-auto">
 
-                <div id="hero-right" className="flex justify-center h-full">
+                <div id="hero-landing-left" className="flex justify-center h-full tersembunyi-hero">
                     <div className="flex flex-col gap-2 z-0">
                         <div id="hero left" className="relative overflow-hidden lg:max-w-2xl lg:h-[900px] h-[320px] bg-no-repeat shadow-black shadow-lg group hidden lg:block">
                             <img src="justin gaethje.jpg" className=" h-full hover:scale-105 w-full transition duration-500 object-cover"/>
@@ -15,7 +47,7 @@ export default function ContactUs() {
                     </div>
                 </div>
 
-                <div id="hero-left" className="flex justify-center shadow-black shadow-lg lg:-ml-44 bg-white py-4 px-4 flex-col lg:max-w-3xl z-10">
+                <div id="hero-landing-right" className="flex justify-center shadow-black shadow-lg lg:-ml-44 bg-white py-4 px-4 flex-col lg:max-w-3xl z-10 tersembunyi-hero">
 
                     <form className="flex flex-col gap-2 w-full h-full bg-white py-3 lg:px-28 px-5 border-gray-500 border" style={{borderWidth: '2px'}}>
 

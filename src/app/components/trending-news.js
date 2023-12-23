@@ -1,15 +1,44 @@
 "use client"
 import Link from "next/link"
-
+import { useState, useEffect, useRef } from "react";
 
 export default function TrendingNews() {
 
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+          { rootMargin: "-10px" }
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      }, [isIntersecting]);
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi-fade').forEach((el) => {
+            el.classList.add('fade');
+          });
+        } else {
+            ref.current.querySelectorAll(".tersembunyi-fade").forEach((el) => {
+              el.classList.remove("fade");
+            });
+        }
+      }, [isIntersecting]);
+
     return (
-        <section id="gallery" className="w-full px-6 py-10 -mt-2.5 dark:bg-[#121212] bg-[#f5f5f5] transition duration-500">
+        <section id="gallery" className="w-full px-6 py-10 -mt-2.5 dark:bg-[#121212] bg-[#f5f5f5] transition duration-500" ref={ref}>
 
-        <div className="dark:text-white transition duration-500 text-black text-center uppercase lg:text-6xl text-4xl justify-center py-8" style={{fontFamily: 'Bebas Neue'}}>Trending News</div>
+        <div className="dark:text-white transition duration-500 tersembunyi-fade text-black text-center uppercase lg:text-6xl text-4xl justify-center py-8" style={{fontFamily: 'Bebas Neue'}}>Trending News</div>
 
-        <div className="flex flex-col lg:flex-row justify-between gap-10 items-start px-6 max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row justify-between tersembunyi-fade gap-10 items-start px-6 max-w-7xl mx-auto">
 
             <div className="flex justify-start w-full text-black dark:text-white transition duration-500">
 

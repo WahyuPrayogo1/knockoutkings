@@ -1,7 +1,37 @@
 "use client"
 import Link from "next/link"
+import { useState, useEffect, useRef } from "react";
 
 export default function ArticleDaudYordan() {
+
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+          { rootMargin: "-10px" }
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      }, [isIntersecting]);
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi-footer').forEach((el) => {
+            el.classList.add('slide-up');
+          });
+        } else {
+            ref.current.querySelectorAll(".tersembunyi-footer").forEach((el) => {
+              el.classList.remove("slide-up");
+            });
+        }
+      }, [isIntersecting]);
 
     const OtherArticle = [
         {
@@ -55,11 +85,11 @@ export default function ArticleDaudYordan() {
     ]
 
     return (
-        <section id="gallery" className="w-full -mt-2.5 py-10 dark:bg-[#121212] bg-[#f5f5f5] transition duration-500">
+        <section id="gallery" className="w-full -mt-2.5 py-10 dark:bg-[#121212] bg-[#f5f5f5] transition duration-500" ref={ref}>
 
-        <div className="dark:text-white transition duration-500 text-black text-center uppercase lg:text-6xl text-4xl justify-center py-8 max-w-4xl mx-auto" style={{fontFamily: 'Bebas Neue'}}>Local Boxer Achieves Stunning Victory with Knockout Kings Boxing Center Training</div>
+        <div className="dark:text-white transition duration-500 text-black text-center uppercase lg:text-6xl text-4xl justify-center py-8 max-w-4xl mx-auto tersembunyi-footer" style={{fontFamily: 'Bebas Neue'}}>Local Boxer Achieves Stunning Victory with Knockout Kings Boxing Center Training</div>
 
-        <div className="flex justify-center lg:gap-20 gap-6 items-center px-6 lg:px-12">
+        <div className="flex justify-center lg:gap-20 gap-6 items-center px-6 lg:px-12 tersembunyi-footer">
 
             <div>
 
@@ -75,7 +105,7 @@ export default function ArticleDaudYordan() {
 
         </div>
 
-        <div className="flex flex-col lg:flex-row lg:justify-between lg:gap-40 gap-0 px-6 py-8">
+        <div className="flex flex-col lg:flex-row lg:justify-between lg:gap-40 gap-0 px-6 py-8 tersembunyi-footer">
 
             <div className="flex justify-start w-full text-black dark:text-white transition duration-500">
 
@@ -124,11 +154,11 @@ export default function ArticleDaudYordan() {
 
         </div>
 
-        <div className="flex flex-col lg:flex-row lg:justify-between lg:gap-40 gap-0 px-6 py-8">
+        <div className="flex flex-col lg:flex-row lg:justify-between lg:gap-40 gap-0 px-6 py-8 tersembunyi-footer">
 
-            <div className="flex flex-col items-center lg:items-center lg:justify-start justify-center">
+            <div className="flex flex-col items-center lg:items-center w-full lg:justify-start justify-center">
 
-                <div className="flex flex-col justify-start">
+                <div className="flex flex-col text-black dark:text-white justify-start">
 
                     <div className="lg:py-4">
 
@@ -170,13 +200,13 @@ export default function ArticleDaudYordan() {
 
         </div>
 
-        <div className="flex justify-end px-6 -mt-8">
+        <div className="flex justify-end px-6 -mt-8 tersembunyi-footer">
 
             <img src="/daud yordan spar.jpeg" className="h-[320px] object-cover w-[815px]" alt="" />
 
         </div>
 
-        <div className="flex flex-col lg:flex-row justify-between lg:gap-40 gap-0 px-6 py-8">
+        <div className="flex flex-col lg:flex-row justify-between lg:gap-40 gap-0 px-6 py-8 tersembunyi-footer">
 
             <div className="flex justify-start w-full text-black dark:text-white transition duration-500">
 
@@ -234,10 +264,10 @@ export default function ArticleDaudYordan() {
 
         </div>
 
-        <h3 className="text-black dark:text-white text-center py-4 lg:text-3xl text-xl font-bold transition" style={{fontFamily: 'Roboto'}}>Other Articles</h3>
+        <h3 className="text-black dark:text-white text-center py-4 lg:text-3xl text-xl font-bold transition tersembunyi-footer" style={{fontFamily: 'Roboto'}}>Other Articles</h3>
 
 
-        <div className="py-4 bg-black px-4 dark:bg-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-6 transition">
+        <div className="py-4 bg-black px-4 dark:bg-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 tersembunyi-footer w-full gap-6 transition">
 
             {OtherArticle.map((item, index) => (
 
@@ -249,7 +279,7 @@ export default function ArticleDaudYordan() {
 
                             <h3 className="font-bold lg:text-base text-sm leading-relaxed" style={{fontFamily: 'Roboto'}}>{item.tittle}</h3>
 
-                            <p className="font-extralight text-white lg:text-sm text-xs dark:text-black dark:font-light overflow-hidden leading-relaxed">{item.caption}</p>
+                            <p className="font-extralight text-white lg:text-sm text-xs dark:text-black transition duration-500 dark:font-light overflow-hidden leading-relaxed">{item.caption}</p>
 
                         </div>
 

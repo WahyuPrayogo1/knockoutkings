@@ -47,6 +47,79 @@ html {
     }
   }
 
+.tersembunyi {
+  opacity: 0;
+  transform: translateY(-20%);
+}
+
+.slide-down {
+  opacity: 1;
+  transform: translateY(0%);
+  transition: all;
+  transition-duration: 500ms;
+}
+
+.tersembunyi-footer {
+  opacity: 0;
+  transform: translateY(20%);
+}
+
+.slide-up {
+  opacity: 1;
+  transform: translateY(0%);
+  transition: all;
+  transition-duration: 500ms;
+}
+
+#tittle.tersembunyi-hero {
+  opacity: 0;
+}
+
+#hero-landing-left.tersembunyi-hero {
+  opacity: 0;
+  transform: translateX(-5%);
+}
+
+#hero-landing-right.tersembunyi-hero {
+  opacity: 0;
+  transform: translateX(5%);
+}
+
+#tittle.slide {
+  opacity: 1;
+  transition: all ease-in-out;
+  transition-duration: 500ms;
+}
+
+#hero-landing-left.slide {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all ease-in-out;
+  transition-duration: 500ms;
+}
+
+#hero-landing-right.slide {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all ease-in-out;
+  transition-duration: 500ms;
+}
+
+.tersembunyi-fade {
+  opacity: 0;
+}
+
+.fade {
+  opacity: 1;
+  transition: all ease-in-out;
+  transition-duration: 500ms;
+}
+
+#bg-black.fade {
+  opacity: 0.6;
+  transition: all ease-in-out;
+  transition-duration: 500ms;
+}
 
 
 

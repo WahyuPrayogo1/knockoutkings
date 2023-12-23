@@ -1,8 +1,38 @@
 "use client"
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 export default function HeroBoysTrainingMatch() {
+
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+          { rootMargin: "-10px" }
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      }, [isIntersecting]);
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi-fade').forEach((el) => {
+            el.classList.add('fade');
+          });
+        } else {
+            ref.current.querySelectorAll(".tersembunyi-fade").forEach((el) => {
+              el.classList.remove("fade");
+            });
+        }
+      }, [isIntersecting]);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollValue = window.scrollY;
@@ -19,14 +49,14 @@ export default function HeroBoysTrainingMatch() {
 
   return (
 
-    <section className="w-full bg-[#f5f5f5] dark:bg-[#121212] transition duration-500">
+    <section className="w-full bg-[#f5f5f5] dark:bg-[#121212] transition duration-500" ref={ref}>
         <div className='relative overflow-hidden'>
       <div
       id="parallax-element"
         className="absolute w-full h-full bg-cover bg-center"
         style={{ backgroundImage: `url('/backround black.png')` }}
       ></div>
-      <main className="flex flex-col justify-between p-64 items-center lg:p-64 md:py-96 sm:py-80 sm:px-6 py-72 px-6 z-10 w-full h-full relative">
+      <main className="flex flex-col justify-between tersembunyi-fade p-64 items-center lg:p-64 md:py-96 sm:py-80 sm:px-6 py-72 px-6 z-10 w-full h-full relative">
         <div id="hero-left">
           <div
             className="text-white lg:text-7xl md:text-5xl text-4xl flex flex-row lg:gap-4 md:gap-3 sm:gap-2 gap-1"

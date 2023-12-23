@@ -1,12 +1,43 @@
 "use client"
+import { useState, useEffect, useRef } from "react";
 
 export default function WhyChooseUs() {
+
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+          { rootMargin: "-10px" }
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      }, [isIntersecting]);
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi-hero').forEach((el) => {
+            el.classList.add('slide');
+          });
+        } else {
+            ref.current.querySelectorAll(".tersembunyi-hero").forEach((el) => {
+              el.classList.remove("slide");
+            });
+        }
+      }, [isIntersecting]);
+
     return (
-        <section className="lg:px-12 px-6 -mt-32 bg-[#f5f5f5]">
+        <section className="lg:px-12 px-6 -mt-32 bg-[#f5f5f5]" ref={ref}>
 
             <div className="flex-col lg:flex-row flex lg:justify-between justify-center items-center py-14 max-w-7xl mx-auto">
 
-                <div id="hero-left" className="flex justify-center flex-col mt-40 max-w-2xl mx-auto">
+                <div id="hero-landing-left" className="flex justify-center tersembunyi-hero flex-col mt-40 max-w-2xl mx-auto">
 
                     <div className="text-black text-5xl md:text-7xl lg:text-8xl py-3 text-center lg:text-left" style={{fontFamily: 'Bebas Neue'}}>why choose us!</div>
                     <div className="text-black lg:text-base text-sm lg:text-left text-center py-3" style={{fontFamily: 'Roboto'}}>Individuals choose Knockout Kings as their martial arts gym for its unparalleled  combination of expert instruction, state-of-the-art facilities, and a supportive  community dedicated to fostering personal growth and excellence  in every practitioner.</div>
@@ -55,7 +86,7 @@ export default function WhyChooseUs() {
 
                 </div>
 
-                <div id="hero-right" className="flex sm:flex-row xs:flex-row flex-col justify-center sm:gap-4 gap-0.5 lg:pt-[150px] pt-14 max-w-xl mx-auto">
+                <div id="hero-landing-right" className="flex tersembunyi-hero sm:flex-row xs:flex-row flex-col justify-center sm:gap-4 gap-0.5 lg:pt-[150px] pt-14 max-w-xl mx-auto">
                     <div className="flex flex-col gap-2 z-10">
                         <div id="hero left" className="relative overflow-hidden bg-no-repeat shadow-black lg:h-72 lg:w-72 sm:h-56 sm:w-56 w-48 h-48 md:w-64 md:h-64 shadow-xl group">
                             <img src="boxer-training.jpg" alt="" className=" h-full w-full absolute object-cover group-hover:scale-105 transition duration-500  "/>

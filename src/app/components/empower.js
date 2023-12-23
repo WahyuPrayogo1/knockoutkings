@@ -1,14 +1,45 @@
 "use client"
 
 import Link from "next/link"
+import { useState, useEffect, useRef } from "react";
 
 export default function Empower() {
+
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+          { rootMargin: "-10px" }
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      }, [isIntersecting]);
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi-hero').forEach((el) => {
+            el.classList.add('slide');
+          });
+        } else {
+            ref.current.querySelectorAll(".tersembunyi-hero").forEach((el) => {
+              el.classList.remove("slide");
+            });
+        }
+      }, [isIntersecting]);
+
     return (
-        <section className="bg-[#f5f5f5] dark:bg-[#121212] lg:px-12 py-12 px-6 -my-5 transition duration-500">
+        <section className="bg-[#f5f5f5] dark:bg-[#121212] lg:px-12 py-12 px-6 -my-5 transition duration-500" ref={ref}>
 
             <div className="flex flex-col sm:flex-col lg:flex-row md:flex-row justify-between gap-6 lg:gap-none items-start max-w-7xl mx-auto">
 
-                <div className="flex flex-col justify-start lg:items-start md:items-start items-center lg:gap-6 md:gap-4 sm:gap-2 gap-1 max-w-xl mx-auto" id="hero-left">
+                <div id="hero-landing-left" className="flex flex-col justify-start tersembunyi-hero lg:items-start md:items-start items-center lg:gap-6 md:gap-4 sm:gap-2 gap-1 max-w-xl mx-auto">
 
                     <h3 className="lg:text-3xl text-xl" style={{fontFamily: 'Bebas Neue', color: 'red'}}>Empower</h3>
 
@@ -38,7 +69,7 @@ export default function Empower() {
 
                 </div>
 
-                <div id="hero-right" className="flex flex-col justify-start items-start max-w-2xl">
+                <div id="hero-landing-right" className="flex flex-col justify-start tersembunyi-hero items-start max-w-2xl">
 
                     <div className="flex flex-col justify-start items-start gap-4">
 

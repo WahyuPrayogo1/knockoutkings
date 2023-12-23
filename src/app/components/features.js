@@ -1,12 +1,42 @@
 "use client";
 import Link from "next/link";
+import { useState, useEffect, useRef } from "react";
 
 export default function Features() {
 
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+          { rootMargin: "-10px" }
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      }, [isIntersecting]);
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi-hero').forEach((el) => {
+            el.classList.add('slide');
+          });
+        } else {
+            ref.current.querySelectorAll(".tersembunyi-hero").forEach((el) => {
+              el.classList.remove("slide");
+            });
+        }
+      }, [isIntersecting]);
+
     return (
-        <section className="w-full py-10 z-10 lg:px-12 px-6 -mt-2.5 dark:bg-[#121212] transition duration-500 bg-[#f5f5f5]">
+        <section className="w-full py-10 z-10 lg:px-12 px-6 -mt-2.5 dark:bg-[#121212] transition duration-500 bg-[#f5f5f5] overflow-x-hidden" ref={ref}>
             <div className="flex flex-col lg:flex-row justify-between items-center py-16 max-w-7xl lg:gap-6 md:gap-4 gap-2 mx-auto">
-                <div id="hero-left" className="my-auto max-w-xl">
+                <div id="hero-landing-left" className="my-auto max-w-xl tersembunyi-hero">
                     <div className="flex flex-col lg:items-start items-center">
                         <div className="uppercase dark:text-white lg:text-left text-center text-black transition duration-500 flex justify-center flex-col text-4xl lg:text-5xl" style={{fontFamily: 'Bebas Neue'}}>unleash your inner champion at knockout kings with our best facilities  </div>
                         <p className="lg:text-left text-center dark:text-white text-black transition duration-500 mt-3 md:text-sm text-xs" style={{fontFamily: 'Roboto'}}>Join Knockout Kings Boxing Center and experience the incredible benefits of boxing. Our expert trainers will help you improve your your fitness, learn self defense skills, and boost your self-confidence</p>
@@ -35,7 +65,7 @@ export default function Features() {
                         </div>
                     </div>
                 </div>
-                <div className="lg:max-w-xl lg:w-full md:w-1/2 w-5/6 py-4 flex justify-between items-start gap-3">
+                <div id="hero-landing-right" className="lg:max-w-xl tersembunyi-hero lg:w-full md:w-1/2 w-5/6 py-4 flex justify-between items-start gap-3">
                     <div className="flex flex-col justify-start items-start gap-2">
                         <img src="boxing.jpg" alt="" className="object-top object-cover shadow-black shadow-lg w-80 h-48" />
                         <img src="boxer-training.jpg" alt="" className="object-center object-cover shadow-black shadow-lg w-80 h-48" />

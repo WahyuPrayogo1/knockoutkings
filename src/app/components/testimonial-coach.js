@@ -10,6 +10,35 @@ const TestimonialsCoach = ({ testimonials }) => {
   const [autorotate, setAutorotate] = useState(true);
   const autorotateTiming = 7000;
 
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+          { rootMargin: "-10px" }
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      }, [isIntersecting]);
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi-fade').forEach((el) => {
+            el.classList.add('fade');
+          });
+        } else {
+            ref.current.querySelectorAll(".tersembunyi-fade").forEach((el) => {
+              el.classList.remove("fade");
+            });
+        }
+      }, [isIntersecting]);
+
   useEffect(() => {
     if (!autorotate) return;
     const interval = setInterval(() => {
@@ -29,9 +58,9 @@ const TestimonialsCoach = ({ testimonials }) => {
   }, [testimonials]);
 
   return (
-    <section className="max-w-7xl mx-auto lg:px-12 px-16 py-20 text-center bg-[#f5f5f5]">
+    <section className="max-w-7xl mx-auto lg:px-12 px-16 py-20 text-center bg-[#f5f5f5]" ref={ref}>
       {/* Testimonial image */}
-      <div className="relative h-32 max-w-sm mx-auto">
+      <div className="relative h-32 max-w-sm mx-auto tersembunyi-fade">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 lg:w-[480px] w-[300px] h-[480px] pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-b before:from-red-500/25 before:via-red-500/5 before:via-25% before:to-red-500/0 before:to-75% before:rounded-full before:-z-10">
           <div className="h-32 [mask-image:_linear-gradient(0deg,transparent,theme(colors.white)_20%,theme(colors.white))]">
             {testimonials.map((testimonial, index) => (
@@ -53,7 +82,7 @@ const TestimonialsCoach = ({ testimonials }) => {
         </div>
       </div>
       {/* Text */}
-      <div className="mb-9 transition-all duration-150 delay-300 ease-in-out">
+      <div className="mb-9 transition-all tersembunyi-fade duration-150 delay-300 ease-in-out">
         <div className="relative flex flex-col" ref={testimonialsRef}>
           {testimonials.map((testimonial, index) => (
             <Transition
@@ -73,7 +102,7 @@ const TestimonialsCoach = ({ testimonials }) => {
         </div>
       </div>
       {/* Buttons */}
-      <div className="flex flex-wrap justify-center -m-1.5">
+      <div className="flex flex-wrap tersembunyi-fade justify-center -m-1.5">
         {testimonials.map((testimonial, index) => (
           <button
             key={index}

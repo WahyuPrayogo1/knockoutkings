@@ -1,4 +1,36 @@
+import { useEffect, useState, useRef } from "react";
+
 export default function OurSponsor() {
+
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+          { rootMargin: "-10px" }
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      }, [isIntersecting]);
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi-footer').forEach((el) => {
+            el.classList.add('slide-up');
+          });
+        } else {
+            ref.current.querySelectorAll(".tersembunyi-footer").forEach((el) => {
+              el.classList.remove("slide-up");
+            });
+        }
+      }, [isIntersecting]);
+
 
     const SponsorData = [
         {
@@ -17,23 +49,27 @@ export default function OurSponsor() {
 
     return (
         
-        <section className="lg:px-12 px-6 bg-[#f5f5f5]">
+        <section className="lg:px-12 px-6 bg-[#f5f5f5]" ref={ref}>
 
-            <h1 className="md:text-6xl text-4xl text-center text-black" style={{fontFamily: "Bebas Neue"}}>SPONSORSHIP</h1>
+            <div className="tersembunyi-footer">
 
-            <div className="flex flex-col justify-center items-center">
+                <h1 className="md:text-6xl text-4xl text-center text-black" style={{fontFamily: "Bebas Neue"}}>SPONSORSHIP</h1>
 
-                <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 justify-self-center gap-10 max-w-7xl mx-auto py-8">
+                <div className="flex flex-col justify-center items-center">
 
-                    {SponsorData.map((item, index) => (
+                    <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 justify-self-center gap-10 max-w-7xl mx-auto py-8">
 
-                        <div key={index} className="w-full">
+                        {SponsorData.map((item, index) => (
 
-                            <img src={item.image} className="object-cover w-full"/>
+                            <div key={index} className="w-full">
 
-                        </div>
+                                <img src={item.image} className="object-cover w-full"/>
 
-                    ))}
+                            </div>
+
+                        ))}
+
+                    </div>
 
                 </div>
 

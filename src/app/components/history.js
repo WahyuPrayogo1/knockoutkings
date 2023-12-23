@@ -1,14 +1,45 @@
 "use client"
+import { useEffect, useState, useRef } from "react";
 
 export default function History() {
-    return (
-        <section className="bg-[#f5f5f5] dark:bg-[#121212] lg:px-12 px-6 -mt-2.5 py-20 transition duration-500">
 
-            <div style={{fontFamily: 'Bebas Neue'}} className="text-black dark:text-white text-center lg:text-6xl text-4xl  py-6 transition duration-500">HISTORY</div>
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+          { rootMargin: "-10px" }
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      }, [isIntersecting]);
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi-hero').forEach((el) => {
+            el.classList.add('slide');
+          });
+        } else {
+            ref.current.querySelectorAll(".tersembunyi-hero").forEach((el) => {
+              el.classList.remove("slide");
+            });
+        }
+      }, [isIntersecting]);
+
+    return (
+        <section className="bg-[#f5f5f5] dark:bg-[#121212] lg:px-12 px-6 -mt-2.5 py-20 transition duration-500 overflow-x-hidden" ref={ref}>
+
+            <div id="tittle" style={{fontFamily: 'Bebas Neue'}} className="tersembunyi-hero text-black dark:text-white text-center lg:text-6xl text-4xl  py-6 transition duration-500">HISTORY</div>
 
             <div className="flex flex-col lg:gap-14 md:gap-10 gap-6 max-w-screen-xl mx-auto">
 
-                <div className="flex flex-col-reverse md:flex-row md:justify-start justify-center items-center lg:gap-[63.5px] md:gap-6 gap-3">
+                <div className="flex flex-col-reverse md:flex-row md:justify-start justify-center items-center lg:gap-[63.5px] md:gap-6 gap-3 tersembunyi-hero" id="hero-landing-left">
 
                     <div id="hero-left" className="flex flex-col justify-center items-center">
 
@@ -29,7 +60,7 @@ export default function History() {
 
                 </div>
 
-                <div className="flex flex-col md:flex-row md:justify-end items-center lg:gap-[63.5px] md:gap-6 gap-3">
+                <div className="flex flex-col md:flex-row md:justify-end items-center lg:gap-[63.5px] md:gap-6 gap-3 tersembunyi-hero" id="hero-landing-right">
 
                     <div id="hero-right">
 
@@ -50,7 +81,7 @@ export default function History() {
 
                 </div>
 
-                <div className="flex flex-col-reverse md:flex-row md:justify-start justify-center items-center lg:gap-[63.5px] md:gap-6 gap-3">
+                <div className="flex flex-col-reverse md:flex-row md:justify-start justify-center items-center lg:gap-[63.5px] md:gap-6 gap-3 tersembunyi-hero" id="hero-landing-left">
 
                     <div id="hero-left" className="flex flex-col justify-center items-center">
 
@@ -71,7 +102,7 @@ export default function History() {
 
                 </div>
 
-                <div className="flex flex-col md:flex-row md:justify-end items-center lg:gap-[63.5px] md:gap-6 gap-3">
+                <div className="flex flex-col md:flex-row md:justify-end items-center lg:gap-[63.5px] md:gap-6 gap-3 tersembunyi-hero" id="hero-landing-right">
 
                     <div id="hero-right">
 
@@ -92,7 +123,7 @@ export default function History() {
 
                 </div>
 
-                <div className="flex flex-col-reverse md:flex-row md:justify-start justify-center items-center lg:gap-[63.5px] md:gap-6 gap-3">
+                <div className="flex flex-col-reverse md:flex-row md:justify-start justify-center items-center lg:gap-[63.5px] md:gap-6 gap-3 tersembunyi-hero" id="hero-landing-left">
 
                     <div id="hero-left" className="flex flex-col justify-center items-center">
 
@@ -113,7 +144,7 @@ export default function History() {
 
                 </div>
 
-                <div className="flex flex-col md:flex-row md:justify-end items-center lg:gap-[63.5px] md:gap-6 gap-3">
+                <div className="flex flex-col md:flex-row md:justify-end items-center lg:gap-[63.5px] md:gap-6 gap-3 tersembunyi-hero" id="hero-landing-right">
 
                     <div id="hero-right">
 

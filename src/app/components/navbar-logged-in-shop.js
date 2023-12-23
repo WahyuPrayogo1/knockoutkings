@@ -2,11 +2,35 @@
 import Link from "next/link" 
 import { usePathname } from 'next/navigation';
 import { SignOut } from "../../../firebase";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useCart } from "./cart-context";
 import React from "react";
 
 const NavbarLoggedInShop = () => {
+
+    const [isIntersecting, setIsIntersecting] = useState(false);
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+          },
+        );
+        console.log(isIntersecting);
+        observer.observe(ref.current);
+    
+        return () => observer.disconnect();
+      });
+    
+      useEffect(() => {
+        if (isIntersecting) {
+          ref.current.querySelectorAll('.tersembunyi').forEach((el) => {
+            el.classList.add('slide-down');
+          });
+        }
+      });
 
     const shopSystem = [
         {
@@ -166,8 +190,8 @@ const NavbarLoggedInShop = () => {
 
     return (
 
-        <header>
-            <nav className="fixed w-full shadow z-30 bg-[#121212] bg-opacity-70" style={{backdropFilter: 'blur(10px)'}}>
+        <header ref={ref}>
+            <nav className="fixed w-full shadow z-30 bg-[#121212] bg-opacity-70 tersembunyi" style={{backdropFilter: 'blur(10px)'}}>
                 <div className="justify-between px-4 mx-auto lg:max-w-8xl md:items-center md:flex md:px-8">
                     <div>
                         <div className="flex items-center justify-between py-3 md:py-5 md:block">
