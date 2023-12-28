@@ -21,12 +21,12 @@ html {
 }
 
 .fade-in {
-    animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 700ms ease-in-out;
   }
   
 
 .fade-out {
-    animation: fadeOut 1s ease-in-out;
+    animation: fadeOut 700ms ease-in-out;
   }
   
 @keyframes fadeIn {
@@ -56,7 +56,7 @@ html {
   opacity: 1;
   transform: translateY(0%);
   transition: all;
-  transition-duration: 1s;
+  transition-duration: 700ms;
 }
 
 .tersembunyi-footer {
@@ -68,7 +68,7 @@ html {
   opacity: 1;
   transform: translateY(0%);
   transition: all;
-  transition-duration: 1s;
+  transition-duration: 700ms;
 }
 
 #tittle.tersembunyi-hero {
@@ -88,21 +88,21 @@ html {
 #tittle.slide {
   opacity: 1;
   transition: all ease-in-out;
-  transition-duration: 1s;
+  transition-duration: 700ms;
 }
 
 #hero-landing-left.slide {
   opacity: 1;
   transform: translateX(0%);
   transition: all ease-in-out;
-  transition-duration: 1s;
+  transition-duration: 700ms;
 }
 
 #hero-landing-right.slide {
   opacity: 1;
   transform: translateX(0%);
   transition: all ease-in-out;
-  transition-duration: 1s;
+  transition-duration: 700ms;
 }
 
 .tersembunyi-fade {
@@ -112,13 +112,13 @@ html {
 .fade {
   opacity: 1;
   transition: all ease-in-out;
-  transition-duration: 1s;
+  transition-duration: 700ms;
 }
 
 #bg-black.fade {
   opacity: 0.6;
   transition: all ease-in-out;
-  transition-duration: 1s;
+  transition-duration: 700ms;
 }
 
 
