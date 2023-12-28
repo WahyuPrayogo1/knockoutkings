@@ -56,7 +56,7 @@ html {
   opacity: 1;
   transform: translateY(0%);
   transition: all;
-  transition-duration: 500ms;
+  transition-duration: 1s;
 }
 
 .tersembunyi-footer {
@@ -68,7 +68,7 @@ html {
   opacity: 1;
   transform: translateY(0%);
   transition: all;
-  transition-duration: 500ms;
+  transition-duration: 1s;
 }
 
 #tittle.tersembunyi-hero {
@@ -88,21 +88,21 @@ html {
 #tittle.slide {
   opacity: 1;
   transition: all ease-in-out;
-  transition-duration: 500ms;
+  transition-duration: 1s;
 }
 
 #hero-landing-left.slide {
   opacity: 1;
   transform: translateX(0%);
   transition: all ease-in-out;
-  transition-duration: 500ms;
+  transition-duration: 1s;
 }
 
 #hero-landing-right.slide {
   opacity: 1;
   transform: translateX(0%);
   transition: all ease-in-out;
-  transition-duration: 500ms;
+  transition-duration: 1s;
 }
 
 .tersembunyi-fade {
@@ -112,13 +112,13 @@ html {
 .fade {
   opacity: 1;
   transition: all ease-in-out;
-  transition-duration: 500ms;
+  transition-duration: 1s;
 }
 
 #bg-black.fade {
   opacity: 0.6;
   transition: all ease-in-out;
-  transition-duration: 500ms;
+  transition-duration: 1s;
 }
 
 

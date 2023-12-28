@@ -72,7 +72,7 @@ const NavbarLoggedIn = () => {
             <div className="justify-between px-4 mx-auto lg:max-w-8xl md:items-center md:flex md:px-8 tersembunyi">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
-                        <div className="flex lg:gap-2 gap-1 text-xl sm:text-2xl font-semibold md:text-3xl lg:text-5xl justify-start text-white dark:text-black transition duration-500 " style={{fontFamily: 'Bebas Neue'}}> KNOCKOUT <h2 style={{color: 'red'}}>KINGS</h2></div>
+                        <div className="flex lg:gap-2 gap-1 text-xl sm:text-2xl font-semibold md:text-3xl lg:text-5xl justify-start text-white dark:text-red-600 transition duration-500 " style={{fontFamily: 'Bebas Neue'}}> KNOCKOUT <h2>KINGS</h2></div>
                         <div className="md:hidden flex items-center gap-12">
                             <div className="">
                                 <label htmlFor="theme-switch" className="cursor-pointer justify-center">
